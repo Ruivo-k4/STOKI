@@ -10,10 +10,10 @@ empresa VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
 cnpj VARCHAR(18) NOT NULL UNIQUE,
 cpf VARCHAR(14) NOT NULL UNIQUE,
-nib VARCHAR(11) NOT NULL UNIQUE,
+nib VARCHAR(13) NOT NULL UNIQUE,
 
 data_cad DATETIME DEFAULT current_timestamp
-);
+); 
 
 CREATE TABLE funcionarios (
 id INT NOT NULL primary KEY auto_increment,
@@ -83,3 +83,32 @@ SELECT*FROM funcionarios;
 SELECT*FROM produtos;
 SELECT*FROM cliente;
 SELECT*FROM vendas;
+
+delimiter $$
+create procedure cadastro_adm(
+in
+$nome varchar(100),
+$empresa varchar(100),
+$email varchar(100),
+$cpf varchar(14),
+$cnpj varchar(18),
+$nib varchar(13)
+) begin
+insert into adms(nome, empresa, email, cpf, cnpj, nib)
+values ($nome, $empresa, $email, $cpf, $cnpj, $nib); 
+end $$
+call cadastro_adm("fernando", "FerDnando", "Fernando@gmail.com", "111.111.111-11", "11111111111111", "10409261234");
+
+delimiter $$
+create procedure cadastro_funcionario(
+in
+$nome varchar(100),
+$email varchar(100),
+$senha varchar(100),
+$cpf varchar(14),
+$adms_id int
+) begin
+insert into funcionarios(nome, email, senha, cpf, adms_id)
+values ($nome, $email, $senha, $cpf, $adms_id);
+end $$
+call cadastro_funcionario("wesley", "wesley@gmail.com", "wesley123", "111.111.111-11", 1);
