@@ -23,6 +23,7 @@ nome VARCHAR(100) NOT NULL,
 
 email VARCHAR(100) NOT NULL UNIQUE,
 cpf VARCHAR(14) NOT NULL UNIQUE,
+senha varchar(100) NOT NULL UNIQUE,
 
 data_cad DATETIME DEFAULT current_timestamp,
 
@@ -34,12 +35,13 @@ id INT NOT NULL PRIMARY KEY auto_increment,
 adms_id INT NOT NULL,
 
 nome VARCHAR(100) NOT NULL,
-qntd INT NOT NULL,
-valor_unitario FLOAT NOT NULL,
-valor_venda FLOAT NOT NULL,
-valor_compra FLOAT NOT NULL,
-peso FLOAT NOT NULL,
 marca VARCHAR(100) NOT NULL,
+descricao varchar(1000) not null,
+qntd INT NOT NULL,
+valor_unitario DECIMAL(18,2) NOT NULL,
+valor_venda DECIMAL(18,2) NOT NULL,
+valor_compra DECIMAL(18,2) NOT NULL,
+peso DECIMAL(18,2) NOT NULL,
 lote INT NOT NULL UNIQUE,
 
 gtin VARCHAR(14) NOT NULL UNIQUE,
@@ -49,7 +51,7 @@ date_cad DATETIME DEFAULT current_timestamp,
 foreign key (adms_id) REFERENCES adms(id)
 );
 
-CREATE TABLE cliente (
+CREATE TABLE clientes (
 id INT NOT NULL PRIMARY KEY auto_increment,
 adms_id INT NOT NULL,
 
@@ -73,7 +75,7 @@ valor FLOAT NOT NULL,
 
 data_venda DATETIME DEFAULT current_timestamp,
 
-FOREIGN KEY (cliente_id) REFERENCES cliente(id),
+FOREIGN KEY (cliente_id) REFERENCES clientes(id),
 FOREIGN KEY (adm_id) REFERENCES adms(id),
 FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
@@ -81,7 +83,7 @@ FOREIGN KEY (produto_id) REFERENCES produtos(id)
 SELECT*FROM adms;
 SELECT*FROM funcionarios;
 SELECT*FROM produtos;
-SELECT*FROM cliente;
+SELECT*FROM clientes;
 SELECT*FROM vendas;
 
 delimiter $$
@@ -112,3 +114,37 @@ insert into funcionarios(nome, email, senha, cpf, adms_id)
 values ($nome, $email, $senha, $cpf, $adms_id);
 end $$
 call cadastro_funcionario("wesley", "wesley@gmail.com", "wesley123", "111.111.111-11", 1);
+
+delimiter $$
+create procedure cadastro_cliente(
+in
+$nome varchar(100),
+$cnpj varchar(18),
+$cpf varchar(14),
+$adms_id int
+) begin
+insert into clientes(nome, cnpj, cpf, adms_id)
+values($nome, $cnpj, $cpf, $adms_id);
+end $$
+call cadastro_cliente("niara", "111111111111", "111.111.111-11", 1);
+
+delimiter $$
+create procedure cadastro_produto(
+in
+$nome varchar(100),
+$marca varchar(100),
+$descricao varchar(1000),
+$qntd int,
+$valor_unitario decimal(18,2),
+$valor_compra decimal(18,2),
+$valor_venda decimal(18,2),
+$peso decimal(12,3),
+$gtin varchar(18),
+$lote int,
+$adms_id int
+) begin
+insert into produtos(nome, marca, descricao, qntd, valor_unitario, valor_compra, valor_venda, peso, gtin, lote, adms_id)
+values ($nome, $marca, $descricao, $qntd, $valor_unitario, $valor_compra, $valor_venda, $peso, $gtin, $lote, $adms_id);
+end $$
+CALL cadastro_produto('Teclado Mecânico RGB', 'Logitech', 'Teclado switch blue abnt2', 50, 299.90, 180.00, 349.99, 0.850, '7891234567890', 10, 1);
+
