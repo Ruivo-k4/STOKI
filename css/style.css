@@ -1,5 +1,6 @@
 @import url(color.css);
 @import url(assideIndex.css);
+@import url(header.css);
 
 * {
     padding: 0;
@@ -32,6 +33,51 @@ a {
 
     .header {
         grid-area: header;
+
+        height: 15dvh;
+
+        .header_item {
+            display: flex;
+            
+            height: 80%;
+        }
+
+        #headerTitle {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #headerAction {
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            
+            .headerAction_item {
+                height: 60%;
+
+                border-radius: 8px;
+
+            }
+
+            input {
+                border: solid 1px gray;
+                padding-left: 1%;
+
+                width: 250px;
+            }
+
+            button {
+                background-color: var(--selectAsside);
+                color: white;
+
+                border: none;
+
+                width: 150px;
+
+                font-size: clamp(1rem, 1dvw, 2rem);
+            }
+        }
     }
 
     .asside {
@@ -39,7 +85,12 @@ a {
     }
 
     .main {
+        margin-top: 2%;
         grid-area: main;
+    }
+
+    .header, .main {
+        padding: 0 5%;
     }
 }
 
