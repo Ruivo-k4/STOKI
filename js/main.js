@@ -1,1 +1,1 @@
-import './menu&footer.js';
+import './menu.js';
