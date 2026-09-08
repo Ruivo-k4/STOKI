@@ -13,26 +13,57 @@
 </head>
 
 <body>
-    <div class="container" id="containerIindex">
+    <div class="index_container" id="contai">
         <header class="header">
-            Porra nenhuma
+            Bem-vindo ao STOKI!
         </header>
+
+        <h2>Faça login para continuar</h2>
         <main class="main">
             <a href="estoque_frame.html">ir</a>
         </main>
 
+        <form action="robandoValores.php" method="post">
+
         <div class="campo_nome">
             <label for="nome">nome</label>
-            <input type="text" placeholder="E-mailou usuário" id="nome">
+            <input type="text" placeholder="Usuário" id="nome">
         </div>
+
+        <div class="campo_email">
+            <label for="email">email</label>
+            <input type="text" placeholder="E-mail" id="email">
+        </div>
+
+        <div class="campo_cpf">
+            <label for="cpf">cpf</label>
+            <input type="text" placeholder="CPF" id="cpf">
+        </div>
+
         <div class="campo_senha">
             <label for="senha">senha</label>
             <input type="text" placeholder="Senha" id="senha">
         </div>
 
+        <input type="submit" class="criar_conta">
+
+        </form>
+
+        <div class="box_marca">
+            <input type="checkbox" placeholder="Lembrar de mim" id="caixa_confirm">
+            <label for="resultado">Lembrar de mim</label>
+        </div>
+
+        <!--Colocar o link da página de lembrar a senha-->
+        <a href="">Esqueceu a senha?</a>
+
         <button id="ButtonCriar">Criar conta</button>
 
         <footer class="footer">
+
+            <div class="mensagem_form" id="mensagem">
+                Coloque as informações necessárias
+            </div>
 
         </footer>
     </div>
