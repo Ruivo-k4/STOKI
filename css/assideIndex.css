@@ -55,7 +55,7 @@
                 &:hover {
                     background-color: var(--hoverAsside);
 
-                    box-shadow: 6px 6px 0 rgba(134, 134, 134, 0.15);
+                    box-shadow: 4px 4px 3px rgba(134, 134, 134, 0.15);
 
                     transform: translateY(-2px);
                     cursor: pointer;
