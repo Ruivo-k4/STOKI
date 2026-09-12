@@ -11,6 +11,20 @@ if (main) {
         { img: "", title: "Em excesso", value: 0 }
     ]
 
+    const pedidosData = [
+        { img: "", title: "Total pedidos", value: 0 },
+        { img: "", title: "Pedidos Pendentes", value: 0 },
+        { img: "", title: "Pedidos entregues", value: 0 },
+        { img: "", title: "Cancelados", value: 0 }
+    ]
+
+    const estoqueData = [
+        { img: "", title: "Total Itens", value: 0 },
+        { img: "", title: "Em estoque", value: 0 },
+        { img: "", title: "Em reposição", value: 0 },
+        { img: "", title: "Em excesso", value: 0 }
+    ]
+
     produtosData.forEach((element) => {
         let div = document.createElement('div');
         div.classList.add('data_item');
