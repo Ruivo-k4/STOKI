@@ -14,5 +14,4 @@ if (header) {
          <button id="btn${pagina}" class="headerAction_item">+ Novo elemento</button>
     </div>
     `;
-
 }
