@@ -2,4 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    #headerTitle{
+        display: flex;
+        align-items: initial;
+        justify-content: center;
+    }
 }
