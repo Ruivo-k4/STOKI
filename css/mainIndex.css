@@ -1,0 +1,14 @@
+#mainIndex {
+    .main_item {
+        background-color: yellow;
+    }
+    
+    #mainData {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        gap: 3rem;
+
+        width: 100%;
+    }
+}

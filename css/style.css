@@ -1,6 +1,7 @@
 @import url(color.css);
 @import url(assideIndex.css);
 @import url(header.css);
+@import url(mainIndex.css);
 
 * {
     padding: 0;
