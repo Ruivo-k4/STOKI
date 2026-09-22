@@ -31,12 +31,13 @@ if (main) {
             div.classList.add('data_item');
 
             div.innerHTML = `
-        <img src="${element.img}" alt="${element.title}">
-        <div>
-            <h3>${element.title}</h3>
-            <p>${element.value}</p>
-        </div>
-        `;
+                <img src="${element.img}" alt="${element.title}">
+                <div>
+                    <h3>${element.title}</h3>
+                    <p>${element.value}</p>
+                </div>
+            `;
+            
             boxes.appendChild(div);
 
         });

@@ -1,6 +1,14 @@
 #mainIndex {
     .main_item {
         background-color: yellow;
+
+        padding: 0.5rem;
+
+        .data_item {
+            display: flex;
+            gap: 5%;
+
+        }
     }
     
     #mainData {
