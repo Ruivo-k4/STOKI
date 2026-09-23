@@ -39,7 +39,6 @@ if (main) {
             `;
             
             boxes.appendChild(div);
-
         });
     }
 

@@ -10,10 +10,18 @@ if (header) {
         }
     ];
     const dataPedidos = [
-        { pagina: "", subtexto: "", btnText: "", placePag: "" }
+        { 
+            pagina: "Pedidos", 
+            subtexto: "Acompanhe e gerencie seus pedidos", 
+            btnText: "+ Novo Pedido", 
+            placePag: "Pesquise seus pedidos..." }
     ];
     const dataEstoque = [
-        { pagina: "", subtexto: "", btnText: "", placePag: "" }
+        { 
+            pagina: "Estoque", 
+            subtexto: "Veja a situação do seu estoque de forma rápida e organizada", 
+            btnText: "Ver código", 
+            placePag: "" }
     ];
 
     function displayHeader(data) {
@@ -41,16 +49,10 @@ if (header) {
             displayHeader(dataProd);
             break;
         case window.location.href.includes("pedidos_frame.html"):
-            pagina = "Pedidos";
-            subtexto = "Acompanhe e gerencie seus pedidos";
-            btnText = "+ Novo Pedido";
+            displayHeader(dataPedidos);
             break;
         case window.location.href.includes("estoque_frame.html"):
-            pagina = "Estoque";
-            subtexto = "Veja a situação do seu estoque de forma rápida e organizada";
-            btnText = "Ver código";
+            displayHeader(dataEstoque);
             break;
     }
-
-    displayHeader();
 }
