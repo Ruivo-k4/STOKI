@@ -10,7 +10,6 @@ empresa VARCHAR(100) NOT NULL,
 email VARCHAR(100) NOT NULL UNIQUE,
 cnpj VARCHAR(18) NOT NULL UNIQUE,
 cpf VARCHAR(14) NOT NULL UNIQUE,
-nib VARCHAR(13) NOT NULL UNIQUE, /*esse não*/
 
 data_cad DATETIME DEFAULT current_timestamp
 ); 
@@ -84,6 +83,7 @@ INSERT INTO item_venda(produto_id, venda_id, produto, quantidade) VALUES (1, 1, 
 CREATE TABLE vendas (
 id INT NOT NULL primary KEY auto_increment,
 cliente_id INT NOT NULL,
+cliente VARCHAR(100),
 
 adm_id INT NOT NULL,
 adm VARCHAR(100),
@@ -91,7 +91,6 @@ adm VARCHAR(100),
 produto_id INT NOT NULL,
 produto VARCHAR(100),
 
-val_unitario DECIMAL(18,2),
 qntd_produto INT,
 valor_total DECIMAL(18,2) NOT NULL,
 forma_pagamento VARCHAR(25) NOT NULL,
@@ -102,6 +101,26 @@ data_venda DATETIME DEFAULT current_timestamp,
 FOREIGN KEY (cliente_id) REFERENCES clientes(id),
 FOREIGN KEY (adm_id) REFERENCES adms(id),
 FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+CREATE TABLE item_venda (
+id INT NOT NULL PRIMARY KEY auto_increment,
+id_produto INT NOT NULL,
+id_venda INT NOT NULL,
+
+quantidade INT NOT NULL,
+val_unitario DECIMAL(18,2),
+subtotal VARCHAR(100),
+
+FOREIGN KEY (id_venda) REFERENCES vendas(id),
+FOREIGN KEY (id_produto) REFERENCES produtos(id)
+);
+
+CREATE TABLE estoque (
+id INT NOT NULL PRIMARY KEY auto_increment,
+nib VARCHAR(13) NOT NULL UNIQUE, /*esse não*/
+
+id_venda INT NOT NULL
 );
 
 SELECT*FROM adms;
