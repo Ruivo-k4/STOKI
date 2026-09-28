@@ -7,6 +7,7 @@ id INT NOT NULL PRIMARY KEY auto_increment,
 nome VARCHAR(100) NOT NULL,
 empresa VARCHAR(100) NOT NULL,
 
+tel VARCHAR(14) NOT NULL UNIQUE,
 email VARCHAR(100) NOT NULL UNIQUE,
 cnpj VARCHAR(18) NOT NULL UNIQUE,
 cpf VARCHAR(14) NOT NULL UNIQUE,
@@ -44,6 +45,35 @@ data_cad DATETIME DEFAULT current_timestamp,
 foreign key (adms_id) REFERENCES adms(id)
 );
 
+CREATE TABLE fornecedores (
+id INT NOT NULL PRIMARY KEY auto_increment,
+
+nome VARCHAR(100),
+email VARCHAR(100) NOT NULL UNIQUE,
+cnpj VARCHAR(100),
+cpf VARCHAR(14) UNIQUE,
+cep VARCHAR(9),
+
+data_cad datetime DEFAULT current_timestamp
+);
+
+CREATE TABLE compras (
+id INT NOT NULL PRIMARY KEY auto_increment,
+
+id_fornecedor INT NOT NULL,
+fornecedor VARCHAR(100),
+
+produto VARCHAR(100),
+qnt_produto INT,
+val_unitario DECIMAL(18,2),
+
+val_total DECIMAL(18,2),
+
+date_cad DATETIME DEFAULT current_timestamp,
+
+foreign key (id_fornecedor) REFERENCES fornecedores(id)
+);
+
 CREATE TABLE produtos (
 id INT NOT NULL PRIMARY KEY auto_increment,
 adms_id INT NOT NULL,
@@ -51,12 +81,17 @@ adms_id INT NOT NULL,
 nome VARCHAR(100) NOT NULL,
 marca VARCHAR(100) NOT NULL,
 descricao varchar(1000) not null,
+
 qntd INT NOT NULL,
 valor_unitario DECIMAL(18,2) NOT NULL,
 valor_venda DECIMAL(18,2) NOT NULL,
 valor_compra DECIMAL(18,2) NOT NULL,
+
 peso DECIMAL(18,2) NOT NULL,
-lote INT NOT NULL UNIQUE,
+lote INT NOT NULL,
+
+qnt_min_repor INT NOT NULL,
+qnt_max_repor INT NOT NULL,
 
 gtin VARCHAR(14) NOT NULL UNIQUE,
 
@@ -65,27 +100,11 @@ date_cad DATETIME DEFAULT current_timestamp,
 foreign key (adms_id) REFERENCES adms(id)
 );
 
-CREATE TABLE item_venda (
-id INT NOT NULL PRIMARY KEY auto_increment,
-
-produto_id INT NOT NULL,
-venda_id INT NOT NULL,
-
-produto VARCHAR(100),
-quantidade INT NOT NULL,
-val_unitario DECIMAL(18,2) NOT NULL,
-
-foreign key (produto_id) REFERENCES produtos(id),
-foreign key (venda_id) REFERENCES vendas(id)
-);
-
-INSERT INTO item_venda(produto_id, venda_id, produto, quantidade) VALUES (1, 1, 'batata', 2); 
-
 CREATE TABLE vendas (
 id INT NOT NULL primary KEY auto_increment,
 cliente_id INT NOT NULL,
 
-adm_id INT NOT NULL,
+adm_id INT,
 adm VARCHAR(100),
 
 produto_id INT NOT NULL,
@@ -102,6 +121,40 @@ data_venda DATETIME DEFAULT current_timestamp,
 FOREIGN KEY (cliente_id) REFERENCES clientes(id),
 FOREIGN KEY (adm_id) REFERENCES adms(id),
 FOREIGN KEY (produto_id) REFERENCES produtos(id)
+);
+
+CREATE TABLE item_venda (
+id INT NOT NULL PRIMARY KEY auto_increment,
+
+produto_id INT NOT NULL,
+venda_id INT NOT NULL,
+
+produto VARCHAR(100),
+quantidade INT NOT NULL,
+val_unitario DECIMAL(18,2) NOT NULL,
+
+foreign key (produto_id) REFERENCES produtos(id),
+foreign key (venda_id) REFERENCES vendas(id)
+);
+
+CREATE TABLE estoque (
+id INT NOT NULL PRIMARY KEY auto_increment,
+
+);
+
+CREATE TABLE mov_estoque (
+id INT NOT NULL PRIMARY KEY auto_increment,
+
+id_produto INT NOT NULL,
+local_produto VARCHAR(100) NOT NULL,
+qntd_produto INT NOT NULL,
+
+val_tot_prod DECIMAL(18, 2),
+val_tot_venda DECIMAL(18, 2),
+
+data_mov DATETIME DEFAULT current_timestamp,
+
+FOREIGN KEY (id_produto) REFERENCES produtos(id)
 );
 
 SELECT*FROM adms;

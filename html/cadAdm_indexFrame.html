@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STOKI faça seu cadastro</title>
+
+    <style>
+        #cadAdm-frame {
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="contaner" id="cadAdm-frame">
-        
+        <form action="../php/cadAdm.php" method="get">
+            <label for="">Nome: <input type="text" class="form_in" name="" id="" required></label>
+            <label for="">Empresa: <input type="text" class="form_in" name="" id="" required></label>
+            <label for="">Telefone: <input type="text" class="form_in" name="" id="" required></label>
+            <label for="">Email: <input type="email" class="form_in" name="" id="" required></label>
+            <label for="">Cpf: <input type="text" class="form_in" name="" id=""></label>
+            <label for="">Cnpj: <input type="text" class="form_in" name="" id=""></label>
+            <button type="submit">ENVIAR</button>
+        </form>
     </div>
 </body>
 </html>
