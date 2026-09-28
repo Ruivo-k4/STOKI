@@ -45,13 +45,13 @@ if (header) {
     }
 
     switch (true) {
-        case window.location.href.includes("Produto_frame.html"):
+        case window.location.href.includes("Produto_frame.php"):
             displayHeader(dataProd);
             break;
-        case window.location.href.includes("pedidos_frame.html"):
+        case window.location.href.includes("pedidos_frame.php"):
             displayHeader(dataPedidos);
             break;
-        case window.location.href.includes("estoque_frame.html"):
+        case window.location.href.includes("estoque_frame.php"):
             displayHeader(dataEstoque);
             break;
     }

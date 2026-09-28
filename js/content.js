@@ -43,13 +43,13 @@ if (main) {
     }
 
     switch (true) {
-        case window.location.href.includes("Produto_frame.html"):
+        case window.location.href.includes("Produto_frame.php"):
             createBoxes(produtosData);
             break
-        case window.location.href.includes('pedidos_frame.html'):
+        case window.location.href.includes('pedidos_frame.php'):
             createBoxes(pedidosData);
             break
-        case window.location.href.includes('estoque_frame.html'):
+        case window.location.href.includes('estoque_frame.php'):
             createBoxes(estoqueData);
             break
     }

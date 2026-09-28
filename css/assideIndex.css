@@ -16,6 +16,7 @@
         color: var(--textPrimarioAsside);
 
         width: 100%;
+        padding: 0 10%;
     }
 
     ul {
@@ -44,7 +45,6 @@
                 display: flex;
                 align-items: center;
 
-                padding: 0 10%;
                 border-radius: 10px;
 
                 width: 100%;
