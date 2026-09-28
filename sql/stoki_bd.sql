@@ -1,3 +1,4 @@
+/*28/29 15:26*/
 CREATE DATABASE stoki_bd;
 USE stoki_bd;
 
@@ -6,6 +7,7 @@ id INT NOT NULL PRIMARY KEY auto_increment,
 
 nome VARCHAR(100) NOT NULL,
 empresa VARCHAR(100) NOT NULL,
+senha VARCHAR(100) NOT NULL,
 
 tel VARCHAR(14) NOT NULL UNIQUE,
 email VARCHAR(100) NOT NULL UNIQUE,
@@ -15,6 +17,25 @@ nib VARCHAR(13) NOT NULL UNIQUE, /*esse não*/
 
 data_cad DATETIME DEFAULT current_timestamp
 ); 
+
+delimiter $$
+create procedure cad_adm(
+in
+$nome varchar(100),
+$empresa varchar(100),
+$tel VARCHAR(100),
+$email varchar(100),
+$cpf varchar(14),
+$cnpj varchar(18),
+$senha VARCHAR(100),
+$nib varchar(13)
+) begin
+insert into adms(nome, empresa, tel, email, cpf, cnpj, senha, nib)
+values ($nome, $empresa, $tel, $email, $cpf, $cnpj, $senha, $nib); 
+end $$
+
+CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nib');
+SELECT*FROM adms;
 
 CREATE TABLE funcionarios (
 id INT NOT NULL primary KEY auto_increment,
@@ -31,12 +52,29 @@ data_cad DATETIME DEFAULT current_timestamp,
 foreign key (adms_id) REFERENCES adms(id)
 );
 
+delimiter $$
+create procedure cad_fun(
+in
+$nome varchar(100),
+$email varchar(100),
+$senha varchar(100),
+$cpf varchar(14),
+$adms_id int
+) begin
+insert into funcionarios(nome, email, senha, cpf, adms_id)
+values ($nome, $email, $senha, $cpf, $adms_id);
+end $$
+
+CALL cad_fun('nome', 'email', 'senha', 'cpf', 1);
+SELECT*FROM funcionarios;
+
 CREATE TABLE clientes (
 id INT NOT NULL PRIMARY KEY auto_increment,
 adms_id INT NOT NULL,
 
 nome VARCHAR(100) NOT NULL,
 
+tel VARCHAR(13) NOT NULL UNIQUE,
 cnpj VARCHAR(18) NOT NULL UNIQUE,
 cpf VARCHAR(14) NOT NULL UNIQUE,
 
@@ -45,10 +83,26 @@ data_cad DATETIME DEFAULT current_timestamp,
 foreign key (adms_id) REFERENCES adms(id)
 );
 
+delimiter $$
+create procedure cad_cliente(
+in
+$nome varchar(100),
+$tel VARCHAR(13),
+$cnpj varchar(18),
+$cpf varchar(14),
+$adms_id int
+) begin
+INSERT INTO clientes(nome, tel, cnpj, cpf, adms_id)
+VALUES ($nome, $tel, $cnpj, $cpf, $adms_id);
+end $$
+
+CALL cad_cliente('nome', 'tel', 'cnpj', 'cpf', 1);
+
 CREATE TABLE fornecedores (
 id INT NOT NULL PRIMARY KEY auto_increment,
 
 nome VARCHAR(100),
+tel VARCHAR(13) NOT NULL UNIQUE,
 email VARCHAR(100) NOT NULL UNIQUE,
 cnpj VARCHAR(100),
 cpf VARCHAR(14) UNIQUE,
@@ -56,6 +110,23 @@ cep VARCHAR(9),
 
 data_cad datetime DEFAULT current_timestamp
 );
+
+delimiter $$
+CREATE PROCEDURE cad_forn (
+IN
+$nome varchar(100),
+$tel varchar(13),
+$email varchar(100),
+$cnpj varchar(14),
+$cpf varchar(14),
+$cep varchar(9)
+) BEGIN
+INSERT INTO fornecedores(nome, tel, email, cnpj, cpf, cep)
+VALUES ($nome, $tel, $email, $cnpj, $cpf, $cep);
+end $$
+
+CALL cad_forn('nome', 'tel', 'email', 'cnpj', 'cpf', 'cep');
+SELECT*FROM fornecedores;
 
 CREATE TABLE compras (
 id INT NOT NULL PRIMARY KEY auto_increment,
@@ -72,6 +143,12 @@ val_total DECIMAL(18,2),
 date_cad DATETIME DEFAULT current_timestamp,
 
 foreign key (id_fornecedor) REFERENCES fornecedores(id)
+);
+
+CREATE TABLE item_compra (
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+date_comp DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE produtos (
@@ -162,48 +239,6 @@ SELECT*FROM funcionarios;
 SELECT*FROM produtos;
 SELECT*FROM clientes;
 SELECT*FROM vendas;
-
-delimiter $$
-create procedure cadastro_adm(
-in
-$nome varchar(100),
-$empresa varchar(100),
-$email varchar(100),
-$cpf varchar(14),
-$cnpj varchar(18),
-$nib varchar(13)
-) begin
-insert into adms(nome, empresa, email, cpf, cnpj, nib)
-values ($nome, $empresa, $email, $cpf, $cnpj, $nib); 
-end $$
-call cadastro_adm("fernando", "FerDnando", "Fernando@gmail.com", "111.111.111-11", "11111111111111", "10409261234");
-
-delimiter $$
-create procedure cadastro_funcionario(
-in
-$nome varchar(100),
-$email varchar(100),
-$senha varchar(100),
-$cpf varchar(14),
-$adms_id int
-) begin
-insert into funcionarios(nome, email, senha, cpf, adms_id)
-values ($nome, $email, $senha, $cpf, $adms_id);
-end $$
-call cadastro_funcionario("wesley", "wesley@gmail.com", "wesley123", "111.111.111-11", 1);
-
-delimiter $$
-create procedure cadastro_cliente(
-in
-$nome varchar(100),
-$cnpj varchar(18),
-$cpf varchar(14),
-$adms_id int
-) begin
-insert into clientes(nome, cnpj, cpf, adms_id)
-values($nome, $cnpj, $cpf, $adms_id);
-end $$
-call cadastro_cliente("niara", "111111111111", "111.111.111-11", 1);
 
 delimiter $$
 create procedure cadastro_produto(
