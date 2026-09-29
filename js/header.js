@@ -23,6 +23,13 @@ if (header) {
             btnText: "Ver código", 
             placePag: "" }
     ];
+    const dataFornecedor = [
+        { 
+            pagina: "Fornecedores", 
+            subtexto: "Veja a situação do seu estoque de forma rápida e organizada", 
+            btnText: "Ver código", 
+            placePag: "" }
+    ];
 
     function displayHeader(data) {
         data.forEach(element => {
@@ -53,6 +60,9 @@ if (header) {
             break;
         case window.location.href.includes("estoque_frame.php"):
             displayHeader(dataEstoque);
+            break;
+        case window.location.href.includes("fornecedor_frame.php"):
+            displayHeader(dataFornecedor);
             break;
     }
 }

@@ -24,6 +24,12 @@ if (main) {
         { img: "", title: "Em reposição", value: 0 },
         { img: "", title: "Em excesso", value: 0 }
     ];
+    const fornecedorData = [
+        { img: "", title: "Total de fornecedores", value: o},
+        { img: "", title: "Devedores", value: o},
+        { img: "", title: "Dívidas", value: o},
+        { img: "", title: "Fornecedores inativos", value: o},
+    ]
 
     function createBoxes(data) {
         data.forEach((element) => {
@@ -51,6 +57,9 @@ if (main) {
             break
         case window.location.href.includes('estoque_frame.php'):
             createBoxes(estoqueData);
+            break
+        case window.location.href.includes('fornecedor.php'):
+            createBoxes(fornecedorData);
             break
     }
     //#endregion
