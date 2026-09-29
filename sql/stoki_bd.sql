@@ -1,4 +1,4 @@
-/*28/29 15:26*/
+/*29/09 00:43*/
 CREATE DATABASE stoki_bd;
 USE stoki_bd;
 
@@ -128,32 +128,117 @@ end $$
 CALL cad_forn('nome', 'tel', 'email', 'cnpj', 'cpf', 'cep');
 SELECT*FROM fornecedores;
 
+CREATE TABLE insumos ( /* materia prima*/
+id INT NOT NULL PRIMARY KEY auto_increment,
+id_forn INT NOT NULL,
+
+nome VARCHAR(100) NOT NULL,
+marca VARCHAR(100) NOT NULL,
+descricao varchar(1000) not null,
+
+qntd INT NOT NULL,
+valor_compra DECIMAL(18,2) NOT NULL,
+
+peso DECIMAL(18,2),
+lote INT,
+
+qnt_min_repor INT NOT NULL,
+qnt_max_repor INT NOT NULL,
+
+gtin VARCHAR(14) NOT NULL UNIQUE,
+
+date_cad DATETIME DEFAULT current_timestamp,
+
+FOREIGN KEY (id_forn) REFERENCES fornecedores(id)
+);
+
+delimiter $$
+CREATE PROCEDURE cad_insumo (
+IN
+$nome VARCHAR(100),
+$marca VARCHAR(100),
+$descricao varchar(1000),
+$qntd INT,
+$valor_compra DECIMAL(18,2),
+$peso DECIMAL(18,2),
+$lote INT,
+$qnt_min_repor INT,
+$qnt_max_repor INT,
+$gtin VARCHAR(14),
+$id_forn int
+) BEGIN
+INSERT INTO insumos(nome, marca, descricao, qntd, valor_compra, peso, lote, qnt_min_repor, qnt_max_repor, gtin, id_forn) 
+VALUES ($nome, $marca, $descricao, $qntd, $valor_compra, $peso, $lote, $qnt_min_repor, $qnt_max_repor, $gtin, $id_forn);
+end $$
+
+CALL cad_insumo('nome', 'marca', 'desc', 0, 0.00, 0.00, 0, 0, 0, 'gtin', 1); 
+SELECT*FROM insumos;
+
 CREATE TABLE compras (
 id INT NOT NULL PRIMARY KEY auto_increment,
 
 id_fornecedor INT NOT NULL,
 fornecedor VARCHAR(100),
 
-produto VARCHAR(100),
-qnt_produto INT,
-val_unitario DECIMAL(18,2),
-
 val_total DECIMAL(18,2),
+estado VARCHAR(50),
 
-date_cad DATETIME DEFAULT current_timestamp,
+date_com DATETIME DEFAULT current_timestamp,
 
 foreign key (id_fornecedor) REFERENCES fornecedores(id)
 );
 
+delimiter $$
+CREATE PROCEDURE cad_compra (
+IN
+$fornecedor VARCHAR(100),
+$val_total DECIMAL(18,2),
+$estado VARCHAR(50),
+$id_fornecedor INT
+) BEGIN
+INSERT INTO compras(fornecedor, val_total, estado, id_fornecedor)
+VALUES ($fornecedor, $val_total, $estado, $id_fornecedor);
+end $$
+
+CALL cad_compra('fornecedor', 0.00, 'estado', 1);
+SELECT*FROM compras;
+
 CREATE TABLE item_compra (
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 
-date_comp DATETIME DEFAULT CURRENT_TIMESTAMP
+id_compra INT NOT NULL,
+id_produto INT NOT NULL,
+produto VARCHAR(100),
+
+qnt INT NOT NULL,
+val_unitario DECIMAL(18,2),
+val_total DECIMAL(18,2),
+
+date_comp DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+FOREIGN KEY (id_compra) REFERENCES compras(id),
+FOREIGN KEY (id_produto) REFERENCES produtos(id)
 );
+
+delimiter $$
+CREATE PROCEDURE cad_item_compra (
+IN
+$id_compra INT,
+$id_produto INT,
+$produto VARCHAR(100),
+$qnt INT,
+$val_unitario DECIMAL(18,2),
+$val_total DECIMAL(18,2)
+) BEGIN
+INSERT INTO item_compra(id_compra, id_produto, produto, qnt, val_unitario, val_total)
+VALUES ($id_compra, $id_produto, $produto, $qnt, $val_unitario, $val_total);
+end $$
+
+CALL cad_item_compra(1, 1, 'produto', 0, 0.00, 0.00);
+SELECT*FROM item_compra;
 
 CREATE TABLE produtos (
 id INT NOT NULL PRIMARY KEY auto_increment,
-adms_id INT NOT NULL,
 
 nome VARCHAR(100) NOT NULL,
 marca VARCHAR(100) NOT NULL,
@@ -172,10 +257,31 @@ qnt_max_repor INT NOT NULL,
 
 gtin VARCHAR(14) NOT NULL UNIQUE,
 
-date_cad DATETIME DEFAULT current_timestamp,
-
-foreign key (adms_id) REFERENCES adms(id)
+date_cad DATETIME DEFAULT current_timestamp
 );
+
+delimiter $$
+CREATE PROCEDURE cad_prod (
+in
+$nome VARCHAR(100),
+$marca VARCHAR(100),
+$descricao varchar(1000),
+$qntd INT,
+$valor_unitario DECIMAL(18,2),
+$valor_venda DECIMAL(18,2),
+$valor_compra DECIMAL(18,2),
+$peso DECIMAL(18,2),
+$lote INT,
+$qnt_min_repor INT,
+$qnt_max_repor INT,
+$gtin VARCHAR(14)
+) BEGIN
+INSERT INTO produtos(nome, marca, descricao, qntd, valor_unitario, valor_venda, valor_compra, peso, lote, qnt_min_repor, qnt_max_repor, gtin)
+VALUES ($nome, $marca, $descricao, $qntd, $valor_unitario, $valor_venda, $valor_compra, $peso, $lote, $qnt_min_repor, $qnt_max_repor, $gtin);
+end $$
+
+CALL cad_prod('nome', 'marca', 'desc', 0, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 'gtin');
+SELECT*FROM produtos;
 
 CREATE TABLE vendas (
 id INT NOT NULL primary KEY auto_increment,
@@ -239,26 +345,6 @@ SELECT*FROM funcionarios;
 SELECT*FROM produtos;
 SELECT*FROM clientes;
 SELECT*FROM vendas;
-
-delimiter $$
-create procedure cadastro_produto(
-in
-$nome varchar(100),
-$marca varchar(100),
-$descricao varchar(1000),
-$qntd int,
-$valor_unitario decimal(18,2),
-$valor_compra decimal(18,2),
-$valor_venda decimal(18,2),
-$peso decimal(12,3),
-$gtin varchar(18),
-$lote int,
-$adms_id int
-) begin
-insert into produtos(nome, marca, descricao, qntd, valor_unitario, valor_compra, valor_venda, peso, gtin, lote, adms_id)
-values ($nome, $marca, $descricao, $qntd, $valor_unitario, $valor_compra, $valor_venda, $peso, $gtin, $lote, $adms_id);
-end $$
-CALL cadastro_produto('Teclado Mecânico RGB', 'Logitech', 'Teclado switch blue abnt2', 50, 299.90, 180.00, 349.99, 0.850, '7891234567890', 10, 1);
 
 delimiter $$
 CREATE TRIGGER trg_valor_unitario_produto
