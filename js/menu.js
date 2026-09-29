@@ -10,7 +10,7 @@ if (menu) {
             <img src="#" alt="STOKI">
         </div>
         <ul>
-            <li><a href="initial.html">Inicio</a></li>
+            <li><a href="login_adm.html">Inicio</a></li>
             <li id="aProd"><a href="Produto_frame.php">Produtos</a></li>
             <li id="aPed"><a href="pedidos_frame.php">Pedidos</a></li>
             <li id="aFin"><a href="financeiro_frame.php">Finanças</a></li>

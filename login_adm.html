@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!--boodstrap-->
+    <!-- <link href="https://jsdelivr.net" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoki seu site de gerenciamento de estoque online</title>
+</head>
+
+<body>
+    <div class="index_container" id="indexFrame">
+        <header class="header">
+            Bem-vindo ao STOKI!
+        </header>
+
+        <h2>Faça login para continuar</h2>
+        <main class="main">
+            <a href="index.html">Voltar</a>
+        </main>
+
+        <form action="#" method="post">
+
+        <div class="campo_nome">
+            <label for="nome">nome</label>
+            <input type="text" placeholder="Usuário" id="nome">
+        </div>
+
+        <div class="campo_email">
+            <label for="email">email</label>
+            <input type="text" placeholder="E-mail" id="email">
+        </div>
+
+        <div class="campo_senha">
+            <label for="senha">senha</label>
+            <input type="text" placeholder="Senha" id="senha">
+        </div>
+
+        <button type="submit" class="criar conta"><a href="financeiro_frame.php">Enviar</a></button>
+
+        </form>
+
+        <div class="box_marca">
+            <input type="checkbox" placeholder="Lembrar de mim" id="caixa_confirm">
+            <label for="resultado">Lembrar de mim</label>
+        </div>
+
+        <!--Colocar o link da página de lembrar a senha-->
+        <a href="">Esqueceu a senha?</a>
+
+        <button id="ButtonCriar"><a href="html/cadAdm_indexFrame.html">Criar Conta</a></button>
+
+        <footer class="footer">
+
+            <div class="mensagem_form" id="mensagem">
+                Coloque as informações necessárias
+            </div>
+
+        </footer>
+    </div>
+
+    <script type="module" src="js/main.js" defer></script><!--Local dos imports-->
+</body>
+
+</html>
