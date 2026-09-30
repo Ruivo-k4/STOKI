@@ -5,9 +5,7 @@ const header = document.querySelector("#headerIndex");
 if (header) {
     const modal = document.querySelector("#modal");
 
-    const btnProd = document.querySelector("#btnProdutos");
-    const btnPed = document.querySelector("#btnPedidos");
-    const btnForn = document.querySelector("#btnFornecedores");
+    const btnProd = document.querySelector("#btnProd");
 
     btnProd.addEventListener('click', () => {
         modal.showModal();

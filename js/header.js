@@ -10,25 +10,28 @@ if (header) {
         }
     ];
     const dataPedidos = [
-        { 
-            pagina: "Pedidos", 
-            subtexto: "Acompanhe e gerencie seus pedidos", 
-            btnText: "+ Novo Pedido", 
-            placePag: "Pesquise seus pedidos..." }
+        {
+            pagina: "Pedidos",
+            subtexto: "Acompanhe e gerencie seus pedidos",
+            btnText: "+ Novo Pedido",
+            placePag: "Pesquise seus pedidos..."
+        }
     ];
     const dataEstoque = [
-        { 
-            pagina: "Estoque", 
-            subtexto: "Veja a situação do seu estoque de forma rápida e organizada", 
-            btnText: "Ver código", 
-            placePag: "" }
+        {
+            pagina: "Estoque",
+            subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
+            btnText: "Ver código",
+            placePag: ""
+        }
     ];
     const dataFornecedor = [
-        { 
-            pagina: "Fornecedores", 
-            subtexto: "Veja a situação do seu estoque de forma rápida e organizada", 
-            btnText: "Ver código", 
-            placePag: "" }
+        {
+            pagina: "Fornecedores",
+            subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
+            btnText: "Ver código",
+            placePag: ""
+        }
     ];
 
     function displayHeader(data) {
@@ -43,11 +46,23 @@ if (header) {
                 </div>
                 <div class="header_item" id="headerAction">
                     <input type="text" name="pesquisa" id="inTable" placeholder="sua pesquisa" class="headerAction_item">
-                    <button id="btn${element.pagina}" class="headerAction_item">${element.btnText}</button>
+                    <button id="btnHeader" class="headerAction_item">${element.btnText}</button>
                 </div>
-            `;
+                `;
 
             header.append(div);
+
+            let btn = document.querySelector("#btnHeader");
+
+            switch (element.pagina) {
+                case 'Produtos':
+                    btn.id = 'btnProd';
+                    break
+                case 'Pedidos':
+                    btn.id = 'btnPed';
+                    break
+            }
+
         });
     }
 
