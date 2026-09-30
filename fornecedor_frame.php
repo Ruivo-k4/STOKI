@@ -16,9 +16,12 @@
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable"></div>
+            <dialog id="modal">
+                <button id="closeModal">X</button>
+            </dialog>
         </main>
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

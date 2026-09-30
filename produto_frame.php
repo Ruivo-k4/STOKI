@@ -15,14 +15,21 @@
         </header>
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
-            <div class="main_item" id="mainTable">
-                <table id="tableIndex">
-                   
-                </table>
-            </div>
+            <div class="main_item" id="mainTable"></div>
+            <dialog id="modal">
+                <button id="closeModal">X</button>
+            </dialog>
         </main>
     </div>
 
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>
+
+<?php 
+$conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
+
+if($conexon) {
+
+}
+?>
