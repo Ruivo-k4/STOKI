@@ -15,10 +15,14 @@
         </header>
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
-            <div class="main_item" id="mainTable"></div>
+            <div class="main_item" id="mainTable">
+                <table id="tableIndex">
+                   
+                </table>
+            </div>
         </main>
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

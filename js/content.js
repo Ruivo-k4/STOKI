@@ -24,11 +24,12 @@ if (main) {
         { img: "", title: "Em reposição", value: 0 },
         { img: "", title: "Em excesso", value: 0 }
     ];
+
     const fornecedorData = [
-        { img: "", title: "Total de fornecedores", value: o},
-        { img: "", title: "Devedores", value: o},
-        { img: "", title: "Dívidas", value: o},
-        { img: "", title: "Fornecedores inativos", value: o},
+        { img: "", title: "Total de fornecedores", value: 0},
+        { img: "", title: "Devedores", value: 0},
+        { img: "", title: "Dívidas", value: 0},
+        { img: "", title: "Fornecedores inativos", value: 0}
     ]
 
     function createBoxes(data) {
@@ -58,7 +59,7 @@ if (main) {
         case window.location.href.includes('estoque_frame.php'):
             createBoxes(estoqueData);
             break
-        case window.location.href.includes('fornecedor.php'):
+        case window.location.href.includes('fornecedor_frame.php'):
             createBoxes(fornecedorData);
             break
     }
