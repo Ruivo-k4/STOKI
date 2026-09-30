@@ -8,7 +8,7 @@
     <title>STOKI seu fornecedor na palma da mão</title>
 </head>
 <body>
-    <div class="container" id="c-estoque financeiroFrame">
+    <div class="container" id="c-estoque fornecedorFrame">
         <aside class="asside" id="assideIndex"></aside>
         <header class="header" id="headerIndex">
            

@@ -15,7 +15,10 @@
     </style>
 </head>
 <body>
-    <div class="contaner" id="cadfun-frame">
+    <div class="container_cadFun_Titu">
+    Cadastre agora no seu aplicativo de gerenciamento STOKI.
+    </div>
+    <div class="contaner_cadFun" id="cadfun-frame">
         <form action="../php/cadFun.php" method="POST">
             <label for="nome_fun">Nome: <input type="text" class="form_in" name="nome" id="nome_fun" required></label>
             <label for="email_fun">Email: <input type="email" class="form_in" name="email" id="email_fun" required></label>

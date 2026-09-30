@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <div class="contaner" id="cadAdm-frame">
+    <div class="container_cadAdm" id="cadAdm-frame">
         <form action="../php/cadAdm.php" method="POST">
             <label for="nome">Nome: <input type="text" class="campo_nome" name="nome" id="nome_adm" required></label>
             <label for="empresa">Empresa: <input type="text" class="campo_empresa" name="empresa" id="empresa_adm" required></label>
