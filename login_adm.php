@@ -30,34 +30,14 @@
             <input type="text" placeholder="Nome" id="nome">
         </div>
         
-        <div class="campo_empresa">
-            <label for="empresa">Empresa</label>
-            <input type="text" placeholder="Empresa" id="empresa">
+        <div class="campo_email">
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="E-mail" id="email">
         </div>
         
         <div class="campo_senha">
             <label for="senha">senha</label>
             <input type="password" placeholder="Senha" id="senha">
-        </div>
-
-        <div class="campo_telefone">
-            <label for="telefone">Telefone</label>
-            <input type="text" placeholder="Telefone" id="telefone">
-        </div>
-
-        <div class="campo_email">
-            <label for="email">E-mail</label>
-            <input type="email" placeholder="E-mail" id="email">
-        </div>
-
-        <div class="campo_cnpj">
-            <label for="cnpj">CNPJ</label>
-            <input type="text" placeholder="CNPJ" id="cnpj">
-        </div>
-
-        <div class="campo_cpf">
-            <label for="cpf">CPF</label>
-            <input type="text" placeholder="CPF" id="cpf">
         </div>
 
         
