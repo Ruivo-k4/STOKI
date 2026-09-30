@@ -1,4 +1,3 @@
-/*29/09 00:43*/
 CREATE DATABASE stoki_bd;
 USE stoki_bd;
 
@@ -97,6 +96,7 @@ VALUES ($nome, $tel, $cnpj, $cpf, $adms_id);
 end $$
 
 CALL cad_cliente('nome', 'tel', 'cnpj', 'cpf', 1);
+SELECT*FROM clientes;
 
 CREATE TABLE fornecedores (
 id INT NOT NULL PRIMARY KEY auto_increment,
@@ -207,8 +207,9 @@ CREATE TABLE item_compra (
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 
 id_compra INT NOT NULL,
-id_produto INT NOT NULL,
-produto VARCHAR(100),
+
+id_insumo INT NOT NULL,
+insumo VARCHAR(100),
 
 qnt INT NOT NULL,
 val_unitario DECIMAL(18,2),
@@ -217,21 +218,21 @@ val_total DECIMAL(18,2),
 date_comp DATETIME DEFAULT CURRENT_TIMESTAMP,
 
 FOREIGN KEY (id_compra) REFERENCES compras(id),
-FOREIGN KEY (id_produto) REFERENCES produtos(id)
+FOREIGN KEY (id_insumo) REFERENCES insumos(id)
 );
 
 delimiter $$
 CREATE PROCEDURE cad_item_compra (
 IN
 $id_compra INT,
-$id_produto INT,
-$produto VARCHAR(100),
+$id_insumo INT,
+$insumo VARCHAR(100),
 $qnt INT,
 $val_unitario DECIMAL(18,2),
 $val_total DECIMAL(18,2)
 ) BEGIN
-INSERT INTO item_compra(id_compra, id_produto, produto, qnt, val_unitario, val_total)
-VALUES ($id_compra, $id_produto, $produto, $qnt, $val_unitario, $val_total);
+INSERT INTO item_compra(id_compra, id_insumo, insumo, qnt, val_unitario, val_total)
+VALUES ($id_compra, $id_insumo, $insumo, $qnt, $val_unitario, $val_total);
 end $$
 
 CALL cad_item_compra(1, 1, 'produto', 0, 0.00, 0.00);
@@ -306,6 +307,27 @@ FOREIGN KEY (adm_id) REFERENCES adms(id),
 FOREIGN KEY (produto_id) REFERENCES produtos(id)
 );
 
+delimiter $$
+CREATE PROCEDURE cad_venda (
+IN
+$cliente_id INT,
+$adm_id INT,
+$adm VARCHAR(100),
+$produto_id INT,
+$produto VARCHAR(100),
+$val_unitario DECIMAL(18,2),
+$qntd_produto INT,
+$valor_total DECIMAL(18,2),
+$forma_pagamento VARCHAR(25),
+$situacao VARCHAR(50)
+) BEGIN
+INSERT INTO vendas(cliente_id, adm_id, adm, produto_id, produto, val_unitario, qntd_produto, valor_total, forma_pagamento, situacao)
+VALUES ($cliente_id, $adm_id, $adm, $produto_id, $produto, $val_unitario, $qntd_produto, $valor_total, $forma_pagamento, $situacao);
+end $$
+
+CALL cad_venda(1, 1, 'adm', 1, 'produto', 0.00, 0, 0.00, 'pagamento', 'situacao');
+SELECT*FROM vendas;
+
 CREATE TABLE item_venda (
 id INT NOT NULL PRIMARY KEY auto_increment,
 
@@ -320,10 +342,21 @@ foreign key (produto_id) REFERENCES produtos(id),
 foreign key (venda_id) REFERENCES vendas(id)
 );
 
-CREATE TABLE estoque (
-id INT NOT NULL PRIMARY KEY auto_increment,
+delimiter $$
+CREATE PROCEDURE cad_item_venda (
+IN
+$produto_id INT,
+$venda_id INT,
+$produto VARCHAR(100),
+$quantidade INT,
+$val_unitario DECIMAL(18,2)
+) BEGIN
+INSERT INTO item_venda(produto_id, venda_id, produto, quantidade, val_unitario)
+VALUES ($produto_id, $venda_id, $produto, $quantidade, $val_unitario);
+end $$
 
-);
+CALL cad_item_venda(1, 1, 'produto', 0, 0.00);
+SELECT*FROM item_venda;
 
 CREATE TABLE mov_estoque (
 id INT NOT NULL PRIMARY KEY auto_increment,
@@ -363,4 +396,4 @@ compra - fornecedor
 venda-cliente
 estoque- entrada(compra) i-saida(venda) estoque
             100             2            98
-*/
+29/09 15:01*/
