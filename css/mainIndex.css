@@ -21,7 +21,7 @@
     }
 
     #modalIndex {
-        display: flex;
+        display: none;
         
         .modalContent {
             display: flex;

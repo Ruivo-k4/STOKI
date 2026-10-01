@@ -1,6 +1,5 @@
 <?php 
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
-
     $nome     = $_POST['nome'];
     $email    = $_POST['email'];
     $cpf      = $_POST['cpf'];

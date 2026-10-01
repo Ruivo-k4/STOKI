@@ -25,9 +25,16 @@
 </html>
 
 <?php 
-$conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
+try { //impede a mensagem de erro de banco, evitar quebrar CSS
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-if($conexon) {
+    $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
+    if($conexon) {
+
+    }
+
+} catch (Exception $error) {
+    echo "";
 }
 ?>

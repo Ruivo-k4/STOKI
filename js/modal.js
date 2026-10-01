@@ -4,10 +4,10 @@ let main = document.querySelector("#mainIndex");
 
 if (main) {
     const modal = document.querySelector("#modalIndex");
-    
+
     if (modal) {
         const contents = {
-            produto:  `
+            produto: `
                 <button id="closeModal">X<button>
                 <div class="modalContent">
                     <input type="text" name="nome" class="modalContent_in" placeholder="Nome:">
@@ -37,9 +37,10 @@ if (main) {
         }
 
         const btn = document.querySelector("#btnHeader");
-    
+
         btn.addEventListener('click', () => {
-            modal.style.width = "80dvw"; 
+            modal.style.display = "flex";
+            modal.style.width = "80dvw";
             modal.style.height = "80dvh";
 
             switch (true) {
@@ -56,11 +57,13 @@ if (main) {
             modal.showModal();
 
             let btnClose = document.querySelector("#closeModal");
-        
+
             btnClose.addEventListener('click', () => {
                 modal.close();
+                modal.style.width = "0px";
+                modal.style.height = "0px";
             });
         });
-    
+
     }
 }

@@ -1,6 +1,5 @@
 <?php 
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
-
     $nome     = $_POST['nome'];
     $empresa  = $_POST['empresa'];
     $senha  = $_POST['senha'];
