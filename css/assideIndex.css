@@ -50,17 +50,17 @@
                 width: 100%;
                 aspect-ratio: 4/1;
 
-                transition: 0.3s;
+                transition: 0.5s;
 
                 &:hover {
                     background-color: var(--hoverAsside);
 
                     box-shadow: 4px 4px 3px rgba(134, 134, 134, 0.15);
 
-                    transform: translateY(-2px);
+                    transform: translateY(-1px);
                     cursor: pointer;
 
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                 }
             }
         }
