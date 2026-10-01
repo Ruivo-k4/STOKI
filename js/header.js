@@ -22,7 +22,7 @@ if (header) {
             pagina: "Estoque",
             subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
             btnText: "Ver código",
-            placePag: ""
+            placePag: "Pesquise seu produto..."
         }
     ];
     const dataFornecedor = [
@@ -30,7 +30,7 @@ if (header) {
             pagina: "Fornecedores",
             subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
             btnText: "Ver código",
-            placePag: ""
+            placePag: "Pesquise seu fornecedor..."
         }
     ];
 
@@ -45,24 +45,12 @@ if (header) {
                     <p>${element.subtexto}</p>
                 </div>
                 <div class="header_item" id="headerAction">
-                    <input type="text" name="pesquisa" id="inTable" placeholder="sua pesquisa" class="headerAction_item">
+                    <input type="text" name="pesquisa" id="inTable" placeholder="${element.placePag}" class="headerAction_item">
                     <button id="btnHeader" class="headerAction_item">${element.btnText}</button>
                 </div>
                 `;
 
             header.append(div);
-
-            let btn = document.querySelector("#btnHeader");
-
-            switch (element.pagina) {
-                case 'Produtos':
-                    btn.id = 'btnProd';
-                    break
-                case 'Pedidos':
-                    btn.id = 'btnPed';
-                    break
-            }
-
         });
     }
 

@@ -16,9 +16,7 @@
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable"></div>
-            <dialog id="modal">
-                <button id="closeModal">X</button>
-            </dialog>
+            <dialog id="modalIndex"></dialog>
         </main>
     </div>
 

@@ -1,37 +1,52 @@
 console.log("modal.js is on");
 
-const header = document.querySelector("#headerIndex");
+let main = document.querySelector("#mainIndex");
 
-if (header) {
-    const modal = document.querySelector("#modal");
+if (main) {
+    const modal = document.querySelector("#modalIndex");
+    
+    if (modal) {
+        const contents = {
+            produto:  `
+                <button id="closeModal">X<button>
+                <h1>Produto</h1>
+            `,
+            pedidos: `
+                <button id="closeModal">X<button>
+                <h1>Pedidos</h1>
+            `,
+            fornecedores: `
+                <button id="closeModal">X<button>
+                <h1>Pedidos</h1>
+            `,
+            estoque: `
+                <button id="closeModal">X<button>
+                <h1>Estoque</h1>
+            `
+        }
 
-    const btnProd = document.querySelector("#btnProd");
+        const btn = document.querySelector("#btnHeader");
+    
+        btn.addEventListener('click', () => {
+            switch (true) {
+                case window.location.href.includes('Produto_frame.php'):
+                    modal.innerHTML = contents.produto; break;
+                case window.location.href.includes('pedidos_frame.php'):
+                    modal.innerHTML = contents.pedidos; break;
+                case window.location.href.includes('fornecedores_frame.php'):
+                    modal.innerHTML = contents.fornecedores; break;
+                case window.location.href.includes('estoque_frame.php'):
+                    modal.innerHTML = contents.estoque; break;
+            }
 
-    btnProd.addEventListener('click', () => {
-        modal.showModal();
+            modal.showModal();
 
-        modal.innerHTML = `
-            <button id="closeModal">X</button>
-
-            <div class="modal_item">
-                <input type="text" name="nome" class="modal_in" placeholder="Nome:">
-                <input type="text" name="marca" class="modal_in" placeholder="Marca:">
-                <input type="text" name="gtin" class="modal_in" placeholder="Código de barras:">
-                <input type="number" name="qnt" class="modal_in number--in" placeholder="Quantidade:">
-                <input type="number" name="val_unit" class="modal_in number--in" placeholder="Valor unitario:">
-                <input type="number" name="val_compra" class="modal_in number--in" placeholder="Valor de compra:">
-                <input type="number" name="val_venda" class="modal_in number--in" placeholder="Valor de venda:">
-                <input type="text" name="lote" class="modal_in number--in" placeholder="Lote:">
-                <input type="number" name="peso" class="modal_in number--in" placeholder="Peso:">
-                <unput type="number" name="min_rep" class="modal_in number--in" placeholder="Minimo para repor:">
-                <input type="text" name="desc" class="modal_in" placeholder="Descrição:">
-            </div>
-        `;
-
-        let btnClose = document.querySelector("#closeModal")
-
-        btnClose.addEventListener('click', () => {
-            modal.close();
+            let btnClose = document.querySelector("#closeModal");
+        
+            btnClose.addEventListener('click', () => {
+                modal.close();
+            });
         });
-    });
+    
+    }
 }
