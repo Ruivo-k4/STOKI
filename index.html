@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -9,44 +10,190 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <div class="image">
-                <img src="" alt="Logo STOKI">
-            </div>
-            <div class="list">
-                <ul>
-                    <li>Início</li>
-                    <li>Sobre</li>
-                    <li>Funcionalidades</li>
-                    <li>Planos</li>
-                </ul>
-            </div>
 
-            <div class="buttons">
-                <button><a href="login_adm.php">Entrar</a></button>
-                <button><a href="html/cadAdm_indexFrame.php">Cadastrar</a></button>
-            </div>
-        </header>
+```
+    <header class="header">
 
-        <main class="main">
+        <div class="image">
+            <img src="" alt="Logo STOKI">
+        </div>
+
+        <div class="list">
+            <ul>
+                <li>Início</li>
+                <li>Sobre</li>
+                <li>Funcionalidades</li>
+                <li>Planos</li>
+            </ul>
+        </div>
+
+        <div class="buttons">
+            <button>
+                <a href="login_adm.php">Entrar</a>
+            </button>
+
+            <button>
+                <a href="html/cadAdm_indexFrame.php">Cadastrar</a>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Apresentação -->
+        <section class="presentation">
 
             <h1 class="title">
                 Seu estoque sempre em suas mãos.
             </h1>
+
             <p class="text">
                 O STOKI é um gerenciador de estoque simples,
-                rápido e completo. Tenha controle total dos seus
-                produtos, pedidos e finaças, tudo em um só lugar.
+                rápido e completo. Tenha controle dos seus
+                produtos, pedidos e finanças em um só lugar.
             </p>
 
             <div class="buttons">
-                <button><a href="html/cadAdm_indexFrame.php">Criar conta grátis</a></button>
-                <button><a href="login_adm.php">Fazer login</a></button>
+                <button>
+                    <a href="html/cadAdm_indexFrame.php">
+                        Criar conta grátis
+                    </a>
+                </button>
+                <button>
+                    <a href="login_adm.php">
+                        Fazer login
+                    </a>
+                </button>
             </div>
-        </main>
+        </section>
 
-        <footer class="footer">
+        <!-- Sobre o STOKI -->
+        <section class="about">
+            <h2>Sobre o STOKI</h2>
+            <p>
+                O STOKI foi desenvolvido com o objetivo de facilitar
+                a organização e o gerenciamento de estoques,
+                reunindo informações importantes em um único sistema.
+            </p>
+            <p>
+                A proposta é oferecer uma solução prática para ajudar
+                no controle de produtos, pedidos, vendas e informações
+                financeiras, tornando o gerenciamento do estoque mais
+                organizado e acessível.
+            </p>
+        </section>
 
+        <!-- Objetivo -->
+        <section class="objective">
+            <h2>Nosso objetivo</h2>
+            <p>
+                O principal objetivo do STOKI é tornar o controle de
+                estoque mais simples e eficiente, evitando a
+                desorganização das informações e facilitando o
+                acompanhamento dos produtos.
+            </p>
+            <p>
+                Com o sistema, buscamos centralizar informações
+                importantes e proporcionar uma experiência mais
+                prática para quem precisa administrar um estoque.
+            </p>
+        </section>
+
+        <!-- Funcionalidades -->
+        <section class="functionalities">
+            <h2>Funcionalidades</h2>
+            <p>
+                O STOKI reúne diferentes recursos para auxiliar no
+                gerenciamento de um estoque.
+            </p>
+
+            <div class="functionality">
+                <h3>Organização de produtos</h3>
+                <p>
+                    Facilita o acompanhamento e a organização dos
+                    produtos cadastrados no estoque.
+                </p>
+            </div>
+
+            <div class="functionality">
+                <h3>Controle de pedidos e vendas</h3>
+                <p>
+                    Auxilia no acompanhamento dos pedidos e das
+                    movimentações realizadas.
+                </p>
+            </div>
+
+            <div class="functionality">
+                <h3>Informações financeiras</h3>
+                <p>
+                    Reúne informações relacionadas às movimentações
+                    financeiras para facilitar o acompanhamento.
+                </p>
+            </div>
+
+            <div class="functionality">
+                <h3>Acesso às informações</h3>
+                <p>
+                    Centraliza os dados do estoque em um único sistema,
+                    facilitando o acesso às informações necessárias.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Planos -->
+        <section class="plans">
+            <h2>Planos</h2>
+            <p>
+                O STOKI foi pensado para oferecer uma solução acessível
+                para diferentes necessidades de gerenciamento.
+            </p>
+
+            <div class="plan">
+                <h3>Plano gratuito</h3>
+                <p>
+                    Uma opção para quem deseja conhecer o sistema e
+                    utilizar os principais recursos do STOKI.
+                </p>
+            </div>
+
+            <div class="plan">
+                <h3>Plano completo</h3>
+                <p>
+                    Uma opção pensada para usuários que precisam de
+                    uma experiência mais completa para administrar
+                    seus estoques.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Projeto escolar -->
+        <section class="school-project">
+            <h2>Um projeto da ETEC Bartolomeu</h2>
+            <p>
+                O STOKI é um projeto desenvolvido por alunos da
+                ETEC Bartolomeu, como parte das atividades escolares
+                relacionadas à área de tecnologia e desenvolvimento
+                de sistemas.
+            </p>
+            <p>
+                Durante o desenvolvimento, o grupo trabalha com
+                conceitos de programação, desenvolvimento web,
+                organização de projetos e criação de interfaces,
+                colocando em prática os conhecimentos adquiridos
+                durante o curso.
+            </p>
+            <p>
+                Mais do que desenvolver um sistema, o projeto tem
+                como objetivo proporcionar aos alunos uma experiência
+                prática na criação de uma solução tecnológica.
+            </p>
+        </section>
+
+        <!-- Destaques -->
+        <section class="features">
+            <h2>Por que utilizar o STOKI?</h2>
             <div class="feature">
                 <img src="" alt="">
                 <p>Organização do seu estoque</p>
@@ -61,12 +208,47 @@
                 <img src="" alt="">
                 <p>Relatórios financeiros</p>
             </div>
-            <!--Batata-->
+
             <div class="feature">
                 <img src="" alt="">
                 <p>Acesso em qualquer lugar</p>
             </div>
-        </footer>
-    </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-info">
+            <img src="" alt="Logo STOKI">
+            <p>
+                STOKI — Seu estoque sempre em suas mãos.
+            </p>
+        </div>
+
+        <div class="footer-about">
+            <h3>STOKI</h3>
+            <p>
+                Uma solução desenvolvida para facilitar
+                o gerenciamento de estoques.
+            </p>
+        </div>
+
+        <div class="footer-project">
+            <h3>Projeto</h3>
+            <p>
+                Projeto escolar desenvolvido na
+                ETEC Bartolomeu.
+            </p>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Informações</h3>
+            <p>
+                Desenvolvimento acadêmico
+                e tecnológico.
+            </p>
+        </div>
+    </footer>
+</div>
+```
 </body>
 </html>
