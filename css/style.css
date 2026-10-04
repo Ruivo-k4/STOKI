@@ -3,6 +3,7 @@
 @import url(header.css);
 @import url(mainIndex.css);
 @import url(modal.css);
+@import url(index.css);
 
 * {
     padding: 0;
