@@ -33,7 +33,24 @@ insert into adms(nome, empresa, tel, email, cpf, cnpj, senha, nib)
 values ($nome, $empresa, $tel, $email, $cpf, $cnpj, $senha, $nib); 
 end $$
 
-CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nib');
+delimiter $$
+create procedure upd_adm(
+in
+$nome varchar(100),
+$empresa varchar(100),
+$tel VARCHAR(100),
+$email varchar(100),
+$cpf varchar(14),
+$cnpj varchar(18),
+$senha VARCHAR(100),
+$nib varchar(13)
+) begin
+update adms
+set nome = $nome, empresa = $empresa, tel = $tel, email = $email, cpf = $cpf, cnpj = $cnpj, senha = $senha, nib = $nib
+where email = $email;
+end $$
+
+CALL upd_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
 SELECT*FROM adms;
 
 CREATE TABLE funcionarios (
@@ -64,7 +81,21 @@ insert into funcionarios(nome, email, senha, cpf, adms_id)
 values ($nome, $email, $senha, $cpf, $adms_id);
 end $$
 
-CALL cad_fun('nome', 'email', 'senha', 'cpf', 1);
+delimiter $$
+create procedure upd_fun(
+in
+$nome varchar(100),
+$email varchar(100),
+$senha varchar(100),
+$cpf varchar(14),
+$adms_id int
+) begin
+update funcionarios
+set nome = $nome, email = $email, senha = $senha, adms_id = $adms_id
+where email = $email;
+end $$
+
+CALL upd_fun('nume', 'email', 'senha', 'cpf', 1);
 SELECT*FROM funcionarios;
 
 CREATE TABLE clientes (
