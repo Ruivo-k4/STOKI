@@ -5,3 +5,4 @@ import './header.js';
 import './content.js';
 import './table.js';
 import './modal.js';
+import './style_modal.js';

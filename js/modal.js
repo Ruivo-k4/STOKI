@@ -1,11 +1,15 @@
 console.log("modal.js is on");
 
+import { styleModal } from "./style_modal.js";
+
 let main = document.querySelector("#mainIndex");
 
 if (main) {
     const modal = document.querySelector("#modalIndex");
+    modal.classList.add('modal--ativo')
 
     if (modal) {
+
         const contents = {
             produto: `
                 <button id="closeModal">X<button>
@@ -39,9 +43,7 @@ if (main) {
         const btn = document.querySelector("#btnHeader");
 
         btn.addEventListener('click', () => {
-            modal.style.display = "flex";
-            modal.style.width = "80dvw";
-            modal.style.height = "80dvh";
+            styleModal(modal)
 
             switch (true) {
                 case window.location.href.includes('Produto_frame.php'):
