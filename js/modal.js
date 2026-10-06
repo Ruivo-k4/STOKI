@@ -49,7 +49,6 @@ if (main) {
             btnCan.addEventListener('click', () => {
                 close(modal);
             });
-
         });
     }
 }

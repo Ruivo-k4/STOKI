@@ -7,7 +7,9 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-y: auto;
 
-    .header, .info, .estoque {
+    .header,
+    .info,
+    .estoque {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -57,7 +59,8 @@
         }
     }
 
-    .info, .estoque {
+    .info,
+    .estoque {
         margin-top: 0.5rem;
 
         input {
@@ -79,6 +82,27 @@
                 background-color: var(--surface-card, #ffffff);
                 border-color: var(--selectAsside, #1468f2);
                 box-shadow: 0 0 0 3px rgba(20, 104, 242, 0.15);
+            }
+        }
+
+        .desc {
+            padding-left: 1%;
+            margin-top: 1%;
+            margin-bottom: 2%;
+
+            .desc__in {
+                height: 25dvh;
+                width: 100%;
+
+                padding-top: 10px;
+                /* Espaço interno no topo */
+                padding-bottom: 160px;
+                /* Espaço gigante embaixo para fazê-lo ficar quadrado */
+                padding-left: 12px;
+                padding-right: 12px;
+
+                overflow-wrap: anywhere;
+                word-break: break-all;
             }
         }
     }

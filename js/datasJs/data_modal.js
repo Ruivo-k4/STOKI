@@ -11,10 +11,15 @@ export const contents = {
             <div class="info">
                 <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
                 <input type="text" name="marca" placeholder="Marca:" class="info_in in--text">
+                <input type="text" name="gtin" placeholder="Código de barras:" class="info_in in--text">
                 <div class="group">
                     <input type="number" min="0" name="quantidade" placeholder="Quantidade" class="group__in in--number">
                     <input type="number" min="0" name="peso" placeholder="Peso" class="group__in in--number">
                 </div>
+                <details class="desc">
+                    <summary>DETALHES</summary>
+                    <input type="text" name="desc" class="desc__in" placeholder="Coloque sua descrição aqui...">
+                </details>
             </div>
             <h1 class="modal__title">Informações Estoque</h1>
             <div class="estoque">
@@ -43,7 +48,7 @@ export const contents = {
                 </div>
             </div>
             <div class="footer">
-                <button class="footer__btn" id="calcelCad">Cancelar</button>
+                <button type="button" class="footer__btn" id="calcelCad">Cancelar</button>
                 <button type="submit" class="footer__btn" id="saveCad">Cadastrar</button>
             </div>
         </form>
