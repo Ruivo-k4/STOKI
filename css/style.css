@@ -2,8 +2,8 @@
 @import url(assideIndex.css);
 @import url(header.css);
 @import url(mainIndex.css);
-@import url(modal.css);
 @import url(index.css);
+@import url(modal.css);
 
 * {
     padding: 0;
@@ -96,4 +96,3 @@ a {
         padding: 0 5%;
     }
 }
-
