@@ -1,12 +1,12 @@
 export const contents = {
     produto: `
-        <form action="../../php/cad_prod.php" method="POST">
-            <div class="header">
-                <h1 class="header__title">Cadastro Produto</h1>
-                <div class="content">
-                    <button class="header_btn" id="closeModal">X</button>
-                </div>
+        <div class="header">
+            <h1 class="header__title">Cadastro Produto</h1>
+            <div class="content">
+                <button class="header_btn" id="closeModal">X</button>
             </div>
+        </div>
+        <form action="../../php/cad_prod.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
                 <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
