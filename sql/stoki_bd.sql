@@ -407,7 +407,7 @@ $gtin VARCHAR(14)
 ) BEGIN
 update produtos
 set nome = $nome, marca = $marca, descricao = $descricao, qntd = $qntd, valor_unitario = $valor_unitario, valor_venda = $valor_venda, valor_compra = $valor_compra, peso = $peso, lote = $lote, qnt_min_repor = $qnt_min_repor, qnt_max_repor = $qnt_max_repor, gtin = $gtin
-where nome = $nome;
+where gtin = $gtin;
 end $$
 
 CALL cad_prod('nome', 'marca', 'desc', 0, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 'gtin');
