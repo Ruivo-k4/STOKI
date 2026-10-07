@@ -50,7 +50,7 @@ set nome = $nome, empresa = $empresa, tel = $tel, email = $email, cpf = $cpf, cn
 where email = $email;
 end $$
 
-CALL upd_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
+CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
 SELECT*FROM adms;
 
 CREATE TABLE funcionarios (
@@ -95,7 +95,7 @@ set nome = $nome, email = $email, senha = $senha, adms_id = $adms_id
 where email = $email;
 end $$
 
-CALL upd_fun('nume', 'email', 'senha', 'cpf', 1);
+CALL cad_fun('nume', 'email', 'senha', 'cpf', 1);
 SELECT*FROM funcionarios;
 
 CREATE TABLE clientes (
@@ -126,6 +126,20 @@ INSERT INTO clientes(nome, tel, cnpj, cpf, adms_id)
 VALUES ($nome, $tel, $cnpj, $cpf, $adms_id);
 end $$
 
+delimiter $$
+create procedure upd_cliente(
+in
+$nome varchar(100),
+$tel VARCHAR(13),
+$cnpj varchar(18),
+$cpf varchar(14),
+$adms_id int
+) begin
+update clientes
+set nome = $nome, tel = $tel, cnpj = $cnpj, cpf = $cpf, adms_id = $adms_id
+where cpf = $cpf;
+end $$
+
 CALL cad_cliente('nome', 'tel', 'cnpj', 'cpf', 1);
 SELECT*FROM clientes;
 
@@ -154,6 +168,20 @@ $cep varchar(9)
 ) BEGIN
 INSERT INTO fornecedores(nome, tel, email, cnpj, cpf, cep)
 VALUES ($nome, $tel, $email, $cnpj, $cpf, $cep);
+end $$
+
+delimiter $$
+create procedure upd_forn(
+in
+$nome varchar(100),
+$tel VARCHAR(13),
+$cnpj varchar(18),
+$cpf varchar(14),
+$adms_id int
+) begin
+update fornecedores
+set nome = $nome, tel = $tel, cnpj = $cnpj, cpf = $cpf, adms_id = $adms_id
+where cpf = $cpf;
 end $$
 
 CALL cad_forn('nome', 'tel', 'email', 'cnpj', 'cpf', 'cep');
@@ -202,6 +230,26 @@ INSERT INTO insumos(nome, marca, descricao, qntd, valor_compra, peso, lote, qnt_
 VALUES ($nome, $marca, $descricao, $qntd, $valor_compra, $peso, $lote, $qnt_min_repor, $qnt_max_repor, $gtin, $id_forn);
 end $$
 
+delimiter $$
+CREATE PROCEDURE upd_insumo (
+IN
+$nome VARCHAR(100),
+$marca VARCHAR(100),
+$descricao varchar(1000),
+$qntd INT,
+$valor_compra DECIMAL(18,2),
+$peso DECIMAL(18,2),
+$lote INT,
+$qnt_min_repor INT,
+$qnt_max_repor INT,
+$gtin VARCHAR(14),
+$id_forn int
+) BEGIN
+update insumos
+set nome = $nome, marca = $marca, descricao = $descricao, qntd = $qntd, valor_compra = $valor_compra, peso = $peso, lote = $lote, qnt_min_repor = $qnt_min_repor, qnt_max_repor = $qnt_max_repor, gtin = $gtin, id_forn = $id_forn
+where id_forn = $id_forn;
+end $$
+
 CALL cad_insumo('nome', 'marca', 'desc', 0, 0.00, 0.00, 0, 0, 0, 'gtin', 1); 
 SELECT*FROM insumos;
 
@@ -229,6 +277,19 @@ $id_fornecedor INT
 ) BEGIN
 INSERT INTO compras(fornecedor, val_total, estado, id_fornecedor)
 VALUES ($fornecedor, $val_total, $estado, $id_fornecedor);
+end $$
+
+delimiter $$
+CREATE PROCEDURE upd_compra (
+IN
+$fornecedor VARCHAR(100),
+$val_total DECIMAL(18,2),
+$estado VARCHAR(50),
+$id_fornecedor INT
+) BEGIN
+update compras
+set fornecedor = $fornecedor, val_total = $val_total, estado = $estado, id_fornecedor = $id_fornecedor
+where id_fornecedor = $id_fornecedor;
 end $$
 
 CALL cad_compra('fornecedor', 0.00, 'estado', 1);
@@ -265,6 +326,22 @@ $val_total DECIMAL(18,2)
 INSERT INTO item_compra(id_compra, id_insumo, insumo, qnt, val_unitario, val_total)
 VALUES ($id_compra, $id_insumo, $insumo, $qnt, $val_unitario, $val_total);
 end $$
+
+delimiter $$
+CREATE PROCEDURE upd_item_compra (
+IN
+$id_compra INT,
+$id_insumo INT,
+$insumo VARCHAR(100),
+$qnt INT,
+$val_unitario DECIMAL(18,2),
+$val_total DECIMAL(18,2)
+) BEGIN
+update item_compra
+set id_compra = $id_compra, id_insumo = $id_insumo, insumo = $insumo, qnt = $qnt, val_unitario = $val_unitario, val_total = $val_total
+where id_compra = $id_compra;
+end $$
+
 
 CALL cad_item_compra(1, 1, 'produto', 0, 0.00, 0.00);
 SELECT*FROM item_compra;
@@ -312,6 +389,27 @@ INSERT INTO produtos(nome, marca, descricao, qntd, valor_unitario, valor_venda, 
 VALUES ($nome, $marca, $descricao, $qntd, $valor_unitario, $valor_venda, $valor_compra, $peso, $lote, $qnt_min_repor, $qnt_max_repor, $gtin);
 end $$
 
+delimiter $$
+CREATE PROCEDURE upd_prod (
+in
+$nome VARCHAR(100),
+$marca VARCHAR(100),
+$descricao varchar(1000),
+$qntd INT,
+$valor_unitario DECIMAL(18,2),
+$valor_venda DECIMAL(18,2),
+$valor_compra DECIMAL(18,2),
+$peso DECIMAL(18,2),
+$lote INT,
+$qnt_min_repor INT,
+$qnt_max_repor INT,
+$gtin VARCHAR(14)
+) BEGIN
+update produtos
+set nome = $nome, marca = $marca, descricao = $descricao, qntd = $qntd, valor_unitario = $valor_unitario, valor_venda = $valor_venda, valor_compra = $valor_compra, peso = $peso, lote = $lote, qnt_min_repor = $qnt_min_repor, qnt_max_repor = $qnt_max_repor, gtin = $gtin
+where nome = $nome;
+end $$
+
 CALL cad_prod('nome', 'marca', 'desc', 0, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 'gtin');
 SELECT*FROM produtos;
 
@@ -356,6 +454,25 @@ INSERT INTO vendas(cliente_id, adm_id, adm, produto_id, produto, val_unitario, q
 VALUES ($cliente_id, $adm_id, $adm, $produto_id, $produto, $val_unitario, $qntd_produto, $valor_total, $forma_pagamento, $situacao);
 end $$
 
+delimiter $$
+CREATE PROCEDURE upd_venda (
+IN
+$cliente_id INT,
+$adm_id INT,
+$adm VARCHAR(100),
+$produto_id INT,
+$produto VARCHAR(100),
+$val_unitario DECIMAL(18,2),
+$qntd_produto INT,
+$valor_total DECIMAL(18,2),
+$forma_pagamento VARCHAR(25),
+$situacao VARCHAR(50)
+) BEGIN
+update vendas
+set cliente_id = $cliente_id, adm_id = $adm_id, adm = $adm, produto_id = $produto_id, produto = $produto, val_unitario = $val_unitario, qntd_produto = $qntd_produto, valor_total = $valor_total, forma_pagamento = $forma_pagamento, situacao = $situacao
+where adm_id = $adm_id;
+end $$
+
 CALL cad_venda(1, 1, 'adm', 1, 'produto', 0.00, 0, 0.00, 'pagamento', 'situacao');
 SELECT*FROM vendas;
 
@@ -384,6 +501,20 @@ $val_unitario DECIMAL(18,2)
 ) BEGIN
 INSERT INTO item_venda(produto_id, venda_id, produto, quantidade, val_unitario)
 VALUES ($produto_id, $venda_id, $produto, $quantidade, $val_unitario);
+end $$
+
+delimiter $$
+CREATE PROCEDURE upd_item_venda (
+IN
+$produto_id INT,
+$venda_id INT,
+$produto VARCHAR(100),
+$quantidade INT,
+$val_unitario DECIMAL(18,2)
+) BEGIN
+update item_venda
+set produto_id = $produto_id, venda_id = $venda_id, produto = $produto, quantidade = $quantidade, val_unitario = $val_unitario
+where venda_id = $venda_id;
 end $$
 
 CALL cad_item_venda(1, 1, 'produto', 0, 0.00);
