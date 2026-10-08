@@ -1,7 +1,5 @@
 #mainIndex {
     .main_item {
-        background-color: yellow;
-
         padding: 0.5rem;
 
         .data_item {
@@ -29,6 +27,33 @@
 
             height: 100%;
             width: 100%;
+        }
+    }
+
+    #mainTable {
+        background-color: red;
+
+        table {
+            background-color: black;
+            border-collapse: collapse;
+            
+            thead {
+                background-color: blue;
+            }
+
+            tbody {
+                background-color: yellow;
+
+                img {
+                    width: 5px;
+                    height: 50px;
+                }
+            }
+            
+            th, td {
+                padding: 10px 15px;
+                text-align: center;
+            }
         }
     }
 }

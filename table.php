@@ -11,9 +11,10 @@ function createTable($datas, $titles) {
             echo '<tbody class="table__body" id="tBody">' ;
                 foreach($datas as $row) {
                     echo '<tr class="table__data">';
-                    foreach($row as $data) {
-                        echo '<td>'.htmlspecialchars($data).'</td>';
-                    }
+                        foreach($row as $data) {
+                            echo '<td>'.htmlspecialchars($data).'</td>';
+                        }
+                        echo '<td><img src="#" alt="editar" class="table__img" id="edtTabBtn"><img src="#" alt="deletar" class="table__img" id="delTabBtn"></td>';
                     echo '</tr>';
                 }
             echo '</tbody>';
