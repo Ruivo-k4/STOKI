@@ -470,7 +470,7 @@ $situacao VARCHAR(50)
 ) BEGIN
 update vendas
 set cliente_id = $cliente_id, adm_id = $adm_id, adm = $adm, produto_id = $produto_id, produto = $produto, val_unitario = $val_unitario, qntd_produto = $qntd_produto, valor_total = $valor_total, forma_pagamento = $forma_pagamento, situacao = $situacao
-where adm_id = $adm_id;
+where produto_id = $produto_id;
 end $$
 
 CALL cad_venda(1, 1, 'adm', 1, 'produto', 0.00, 0, 0.00, 'pagamento', 'situacao');

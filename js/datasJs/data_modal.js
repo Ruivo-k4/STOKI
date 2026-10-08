@@ -63,9 +63,9 @@ export const contents = {
         <form action="../../php/cadPed.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
-                <input type="text" name="qnt" placeholder="Quantidade:" class="info_in in--text">
-                <input type="text" name="val_unit" placeholder="Valor Unitário:" class="info_in in--text">
-                <input type="text" name="val_vend" placeholder="Valor da venda:" class="info_in in--text">
+                <input type="number" name="qnt" placeholder="Quantidade:" class="info_in in--text">
+                <input type="number" name="val_unit" placeholder="Valor Unitário:" class="info_in in--text">
+                <input type="number" name="val_vend" placeholder="Valor da venda:" class="info_in in--text">
                 <input type="text" name="forma_pagamento" placeholder="Forma de pagamento:" class="info_in in--text">
                 <input type="text" name="situacao" placeholder="Situação:" class="info_in in--text">
                 <div class="group">
