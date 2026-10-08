@@ -23,15 +23,21 @@
         list-style: none;
     }
 
+    
     nav {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-
+        
         height: 50%;
-
+        
         #assideLogo {
             padding: 0 10%;
+            
+            .asside__img {
+                width: 5px;
+                height: auto;
+            }
         }
 
         ul {

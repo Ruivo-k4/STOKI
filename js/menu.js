@@ -7,7 +7,7 @@ if (menu) {
     menu.innerHTML = `
     <nav>
         <div id="assideLogo">
-            <img src="../imgs/Stoki_logo.svg" alt="STOKI">
+            <img src="imgs/logo.png" alt="STOKi" class="asside__img">
         </div>
         <ul>
             <li><a href="index.html">Inicio</a></li>
