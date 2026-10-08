@@ -8,11 +8,15 @@ function createTable($datas, $titles) {
                 }
             echo '</tr></thead>';
 
-            echo '<tbody class="table__body" id="tBody"><tr class="table__data">';
-                foreach($datas as $data) {
-                    echo '<td>'.htmlspecialchars($data).'</td>';
+            echo '<tbody class="table__body" id="tBody">' ;
+                foreach($datas as $row) {
+                    echo '<tr class="table__data">';
+                    foreach($row as $data) {
+                        echo '<td>'.htmlspecialchars($data).'</td>';
+                    }
+                    echo '</tr>';
                 }
-            echo '</tr></tbody>';
+            echo '</tbody>';
         echo '</table>';
     echo '</div>';
 }

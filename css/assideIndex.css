@@ -23,7 +23,6 @@
         list-style: none;
     }
 
-    
     nav {
         display: flex;
         flex-direction: column;
@@ -32,10 +31,17 @@
         height: 50%;
         
         #assideLogo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
             padding: 0 10%;
             
             .asside__img {
-                width: 5px;
+                width: 50%;
+
+                border-radius: 50%;
+
                 height: auto;
             }
         }
