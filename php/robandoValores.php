@@ -3,10 +3,10 @@ $connect = mysqli_connect('localhost', 'root', '', 'STOKI');
 
 $iv = $_POST['bd_iv'];
 
-$nome_fun = $_POST['nome'];
-$email_fun = $_POST['email'];
-$senha_fun = $_POST['senha'];
-$cpf_fun = $_POST['cpf'];
+$nome = $_POST['nome'];
+$email = $_POST['email'];
+$cpf = $_POST['cpf'];
+$senha = $_POST['senha'];
 
 if($connect){
     $busca_us = mysqli_query($connect, "SELECT * FROM usuario WHERE iv LIKE '$iv%'");
@@ -20,7 +20,7 @@ if($connect){
             echo "cpf já existe";
         } else {
             $id_pai = $res_buscaUs['id'];
-        $cad_fun = mysqli_query($connect, "INSERT INTO funcionario(nome, email, senha, cpf, id_pai) VALUES ($nome_fun, $email_fun, $senha_fun, $cpf_fun, $id_pai)");
+        $cad_fun = mysqli_query($connect, "INSERT INTO funcionario(nome, email, senha, cpf, id_pai) VALUES ($nome, $email, $senha, $cpf, $id_pai)");
 
         if($cad_fun) {
             echo "cadastrado";

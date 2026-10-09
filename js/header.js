@@ -21,7 +21,7 @@ if (header) {
         {
             pagina: "Estoque",
             subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
-            btnText: "Ver código",
+            btnText: "+ Novo estoque",
             placePag: "Pesquise seu produto..."
         }
     ];
@@ -29,7 +29,7 @@ if (header) {
         {
             pagina: "Fornecedores",
             subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
-            btnText: "Ver código",
+            btnText: "+ Novo Fornecedor",
             placePag: "Pesquise seu fornecedor..."
         }
     ];
