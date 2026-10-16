@@ -26,7 +26,6 @@ if (main) {
             switch (true) {
                 case window.location.href.includes('Produto_frame.php'):
                     modal.innerHTML = contents.produto;
-                    modal.classList.add("modal--ative");
                     break;
                 case window.location.href.includes('pedidos_frame.php'):
                     modal.innerHTML = contents.pedidos; break;
