@@ -29,10 +29,8 @@ if (main) {
                     break;
                 case window.location.href.includes('pedidos_frame.php'):
                     modal.innerHTML = contents.pedidos; break;
-                case window.location.href.includes('fornecedores_frame.php'):
+                case window.location.href.includes('fornecedor_frame.php'):
                     modal.innerHTML = contents.fornecedores; break;
-                case window.location.href.includes('estoque_frame.php'):
-                    modal.innerHTML = contents.estoque; break;
             }
 
             modal.showModal();

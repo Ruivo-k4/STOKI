@@ -21,7 +21,7 @@ if (header) {
         {
             pagina: "Estoque",
             subtexto: "Veja a situação do seu estoque de forma rápida e organizada",
-            btnText: "+ Novo estoque",
+            btnText: "Ver código",
             placePag: "Pesquise seu produto..."
         }
     ];
