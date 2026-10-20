@@ -20,7 +20,7 @@ if (menu) {
     </nav>
     <div class="item" id="assideActions">
         <ul>
-            <li>Configurações</li>
+            <li><a href="#">Configurações</a></li>
             <li>Sair</li>
         </ul>
     </div>
