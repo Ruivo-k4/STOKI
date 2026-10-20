@@ -3,6 +3,7 @@ console.log("modal.js is on");
 import { styleModal } from "./style_modal.js";
 import { contents } from "./datasJs/data_modal.js"
 
+let header = document.querySelector("#headerIndex");
 let main = document.querySelector("#mainIndex");
 
 if (main) {
@@ -18,34 +19,40 @@ if (main) {
 
         modal.classList.add("modal--ative");
 
-        const btn = document.querySelector("#btnHeader");
+        if (header) {
+            const btns = document.querySelectorAll("#btnHeader");
 
-        btn.addEventListener('click', () => {
-            styleModal(modal)
+            btns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    styleModal(modal)
 
-            switch (true) {
-                case window.location.href.includes('Produto_frame.php'):
-                    modal.innerHTML = contents.produto;
-                    break;
-                case window.location.href.includes('pedidos_frame.php'):
-                    modal.innerHTML = contents.pedidos; break;
-                case window.location.href.includes('fornecedor_frame.php'):
-                    modal.innerHTML = contents.fornecedores; break;
-            }
+                    switch (true) {
+                        case window.location.href.includes('Produto_frame.php'):
+                            modal.innerHTML = contents.produto;
+                            break;
+                        case window.location.href.includes('pedidos_frame.php'):
+                            modal.innerHTML = contents.pedidos; break;
+                        case window.location.href.includes('fornecedor_frame.php'):
+                            modal.innerHTML = contents.fornecedores; break;
+                        default:
+                            alert("Pagina não encontrada")
+                    }
 
-            modal.showModal();
+                    modal.showModal();
 
-            let btnClose = document.querySelector("#closeModal");
+                    let btnClose = document.querySelector("#closeModal");
 
-            btnClose.addEventListener('click', () => {
-                close(modal);
-            });
+                    btnClose.addEventListener('click', () => {
+                        close(modal);
+                    });
 
-            let btnCan = document.querySelector("#calcelCad");
+                    let btnCan = document.querySelector("#calcelCad");
 
-            btnCan.addEventListener('click', () => {
-                close(modal);
-            });
-        });
+                    btnCan.addEventListener('click', () => {
+                        close(modal);
+                    });
+                });
+            })
+        }
     }
 }

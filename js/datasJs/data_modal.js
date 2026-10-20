@@ -32,17 +32,17 @@ export const contents = {
             <h1 class="modal__title">Valores Produto</h1>
             <div class="values">
                 <div class="card">
-                    <h2 class="card__title">Valor Unitário</h1>
+                    <h2 class="card__title">Valor Unitário</h2>
                     <label for="val_unit">R$</label>
                     <input type="number" name="val_unit" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Venda</h1>
+                    <h2 class="card__title">Valor Venda</h2>
                     <label for="val_vend">R$</label>
                     <input type="number" name="val_vend" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Compra</h1>
+                    <h2 class="card__title">Valor Compra</h2>
                     <label for="val_com">R$</label>
                     <input type="number" name="val_com" min="0">
                 </div>
@@ -88,17 +88,17 @@ export const contents = {
             <h1 class="modal__title">Valores Produto</h1>
             <div class="values">
                 <div class="card">
-                    <h2 class="card__title">Valor Unitário</h1>
+                    <h2 class="card__title">Valor Unitário</h2>
                     <label for="val_unit">R$</label>
                     <input type="number" name="val_unit" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Venda</h1>
+                    <h2 class="card__title">Valor Venda</h2>
                     <label for="val_vend">R$</label>
                     <input type="number" name="val_vend" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Compra</h1>
+                    <h2 class="card__title">Valor Compra</h2>
                     <label for="val_com">R$</label>
                     <input type="number" name="val_com" min="0">
                 </div>
@@ -110,21 +110,20 @@ export const contents = {
         </form>
     `,
     fornecedores: `
-        <div class="header">
+             <div class="header">
             <h1 class="header__title">Cadastro Pedidos</h1>
             <div class="content">
                 <button class="header_btn" id="closeModal">X</button>
             </div>
         </div>
-        <form action="../../php/cadForn.php" method="POST">
+        <form action="../../php/cadPed.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
-                <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
-                <input type="number" name="tel" placeholder="Telefone:" class="info_in in--text">
-                <input type="text" name="email" placeholder="E-mail:" class="info_in in--text">
-                <input type="text" name="cnpj" placeholder="CNPJ:" class="info_in in--text">
-                <input type="number" name="cpf" placeholder="CPF:" class="info_in in--text">
-                <input type="number" name="cep" placeholder="CEP:" class="info_in in--text">
+                <input type="number" name="qnt" placeholder="Quantidade:" class="info_in in--text">
+                <input type="number" name="val_unit" placeholder="Valor Unitário:" class="info_in in--text">
+                <input type="number" name="val_vend" placeholder="Valor da venda:" class="info_in in--text">
+                <input type="text" name="forma_pagamento" placeholder="Forma de pagamento:" class="info_in in--text">
+                <input type="text" name="situacao" placeholder="Situação:" class="info_in in--text">
                 <div class="group">
                     <input type="number" min="0" name="quantidade" placeholder="Quantidade" class="group__in in--number">
                     <input type="number" min="0" name="peso" placeholder="Peso" class="group__in in--number">
@@ -145,17 +144,17 @@ export const contents = {
             <h1 class="modal__title">Valores Produto</h1>
             <div class="values">
                 <div class="card">
-                    <h2 class="card__title">Valor Unitário</h1>
+                    <h2 class="card__title">Valor Unitário</h2>
                     <label for="val_unit">R$</label>
                     <input type="number" name="val_unit" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Venda</h1>
+                    <h2 class="card__title">Valor Venda</h2>
                     <label for="val_vend">R$</label>
                     <input type="number" name="val_vend" min="0">
                 </div>
                 <div class="card">
-                    <h2 class="card__title">Valor Compra</h1>
+                    <h2 class="card__title">Valor Compra</h2>
                     <label for="val_com">R$</label>
                     <input type="number" name="val_com" min="0">
                 </div>
@@ -165,5 +164,5 @@ export const contents = {
                 <button type="submit" class="footer__btn" id="saveCad">Cadastrar</button>
             </div>
         </form>
-    `
+    `,
 }
