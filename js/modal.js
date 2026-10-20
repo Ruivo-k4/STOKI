@@ -19,6 +19,7 @@ if (main) {
 
         modal.classList.add("modal--ative");
 
+        console.log(header);
         if (header) {
             const btns = document.querySelectorAll("#btnHeader");
 
