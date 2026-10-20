@@ -1,255 +1,160 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STOKI</title>
+    <meta name="theme-color" content="#0B182A">
+    <meta name="description"
+        content="STOKI: controle seu estoque, acompanhe produtos e organize suas operações em um só lugar.">
+
+    <title>STOKI - Seu estoque em suas mãos</title>
+
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <div class="container" id="containerInit">
+    <div class="container">
 
-```
-    <header class="header">
+        <header id="topo">
+            <div class="header-content">
+                <a class="logo" href="#topo" aria-label="STOKI - Página inicial">
+                    <span class="logo-icon" aria-hidden="true">S</span>
+                    STOKI<span>.</span>
+                </a>
 
-        <div class="image">
-            <img src="" alt="Logo STOKI">
-        </div>
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menuPrincipal"
+                    aria-label="Abrir menu">☰ Menu</button>
 
-        <div class="list">
-            <ul>
-                <li>Início</li>
-                <li>Sobre</li>
-                <li>Funcionalidades</li>
-                <li>Planos</li>
-            </ul>
-        </div>
+                <nav id="menuPrincipal" aria-label="Menu principal">
+                    <a href="#topo">Início</a>
+                    <a href="#objetivo">Sobre</a>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="#beneficios">Benefícios</a>
+                </nav>
 
-        <div class="buttons">
-            <button>
-                <a href="login_adm.php">Entrar</a>
-            </button>
-
-            <button>
-                <a href="html/cadAdm_indexFrame.php">Cadastrar</a>
-            </button>
-        </div>
-    </header>
-
-    <main class="main">
-
-        <!-- Apresentação -->
-        <section class="presentation">
-
-            <h1 class="title">
-                Seu estoque sempre em suas mãos.
-            </h1>
-
-            <p class="text">
-                O STOKI é um gerenciador de estoque simples,
-                rápido e completo. Tenha controle dos seus
-                produtos, pedidos e finanças em um só lugar.
-            </p>
-
-            <div class="buttons">
-                <button>
-                    <a href="html/cadAdm_indexFrame.php">
-                        Criar conta grátis
-                    </a>
-                </button>
-                <button>
-                    <a href="login_adm.php">
-                        Fazer login
-                    </a>
-                </button>
+                <div class="auth-buttons">
+                    <a class="btn btn-outline" href="#contato">Entrar</a>
+                    <a class="btn btn-primary" href="#contato">Começar agora</a>
+                </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Sobre o STOKI -->
-        <section class="about">
-            <h2>Sobre o STOKI</h2>
-            <p>
-                O STOKI foi desenvolvido com o objetivo de facilitar
-                a organização e o gerenciamento de estoques,
-                reunindo informações importantes em um único sistema.
-            </p>
-            <p>
-                A proposta é oferecer uma solução prática para ajudar
-                no controle de produtos, pedidos, vendas e informações
-                financeiras, tornando o gerenciamento do estoque mais
-                organizado e acessível.
-            </p>
-        </section>
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="eyebrow">
+                            <span aria-hidden="true">✦</span>
+                            Gestão de estoque simplificada
+                        </div>
 
-        <!-- Objetivo -->
-        <section class="objective">
-            <h2>Nosso objetivo</h2>
-            <p>
-                O principal objetivo do STOKI é tornar o controle de
-                estoque mais simples e eficiente, evitando a
-                desorganização das informações e facilitando o
-                acompanhamento dos produtos.
-            </p>
-            <p>
-                Com o sistema, buscamos centralizar informações
-                importantes e proporcionar uma experiência mais
-                prática para quem precisa administrar um estoque.
-            </p>
-        </section>
+                        <h1>
+                            Seu estoque sob controle.
+                            <span>Sua empresa à frente.</span>
+                        </h1>
 
-        <!-- Funcionalidades -->
-        <section class="functionalities">
-            <h2>Funcionalidades</h2>
-            <p>
-                O STOKI reúne diferentes recursos para auxiliar no
-                gerenciamento de um estoque.
-            </p>
+                        <p class="hero-description">
+                            Organize seus produtos, acompanhe suas movimentações
+                            e tenha mais clareza para tomar decisões.
+                            Tudo em um só lugar.
+                        </p>
 
-            <div class="functionality">
-                <h3>Organização de produtos</h3>
-                <p>
-                    Facilita o acompanhamento e a organização dos
-                    produtos cadastrados no estoque.
-                </p>
-            </div>
+                        <div class="hero-cta">
+                            <a href="#contato" class="btn btn-primary">
+                                Conhecer a STOKI <span aria-hidden="true">→</span>
+                            </a>
+                            <a href="#funcionalidades" class="btn btn-outline">
+                                Explorar funcionalidades
+                            </a>
+                        </div>
 
-            <div class="functionality">
-                <h3>Controle de pedidos e vendas</h3>
-                <p>
-                    Auxilia no acompanhamento dos pedidos e das
-                    movimentações realizadas.
-                </p>
-            </div>
+                        <p class="hero-note">
+                            Mais organização para sua rotina. Menos complicação
+                            na gestão.
+                        </p>
+                    </div>
 
-            <div class="functionality">
-                <h3>Informações financeiras</h3>
-                <p>
-                    Reúne informações relacionadas às movimentações
-                    financeiras para facilitar o acompanhamento.
-                </p>
-            </div>
+                    <div class="hero-mockup">
+                        <div class="dashboard">
+                            <div class="dashboard-top">
+                                <div class="window-dots" aria-hidden="true">
+                                    <i></i><i></i><i></i>
+                                </div>
+                                <span class="dashboard-label">Painel de controle</span>
+                            </div>
 
-            <div class="functionality">
-                <h3>Acesso às informações</h3>
-                <p>
-                    Centraliza os dados do estoque em um único sistema,
-                    facilitando o acesso às informações necessárias.
-                </p>
-            </div>
+                            <div class="dashboard-body">
+                                <h2 class="dashboard-heading">Visão geral do estoque</h2>
 
-        </section>
+                                <div class="stats">
+                                    <div class="stat-card">
+                                        <p class="stat-label">Produtos cadastrados</p>
+                                        <p class="stat-value">1.248</p>
+                                        <p class="stat-change">Catálogo organizado</p>
+                                    </div>
 
-        <!-- Planos -->
-        <section class="plans">
-            <h2>Planos</h2>
-            <p>
-                O STOKI foi pensado para oferecer uma solução acessível
-                para diferentes necessidades de gerenciamento.
-            </p>
+                                    <div class="stat-card">
+                                        <p class="stat-label">Itens disponíveis</p>
+                                        <p class="stat-value">3.672</p>
+                                        <p class="stat-change">Saldo de exemplo</p>
+                                    </div>
 
-            <div class="plan">
-                <h3>Plano gratuito</h3>
-                <p>
-                    Uma opção para quem deseja conhecer o sistema e
-                    utilizar os principais recursos do STOKI.
-                </p>
-            </div>
+                                    <div class="stat-card">
+                                        <p class="stat-label">Estoque baixo</p>
+                                        <p class="stat-value">08</p>
+                                        <p class="stat-change" style="color:#FFC46B">
+                                            Atenção necessária
+                                        </p>
+                                    </div>
 
-            <div class="plan">
-                <h3>Plano completo</h3>
-                <p>
-                    Uma opção pensada para usuários que precisam de
-                    uma experiência mais completa para administrar
-                    seus estoques.
-                </p>
+                                    <div class="stat-card">
+                                        <p class="stat-label">Movimentações</p>
+                                        <p class="stat-value">156</p>
+                                        <p class="stat-change">Exemplo ilustrativo</p>
+                                    </div>
+                                </div>
 
-            </div>
-        </section>
+                                <div class="stock-list">
+                                    <h3>Produtos recentes</h3>
 
-        <!-- Projeto escolar -->
-        <section class="school-project">
-            <h2>Um projeto da ETEC Bartolomeu</h2>
-            <p>
-                O STOKI é um projeto desenvolvido por alunos da
-                ETEC Bartolomeu, como parte das atividades escolares
-                relacionadas à área de tecnologia e desenvolvimento
-                de sistemas.
-            </p>
-            <p>
-                Durante o desenvolvimento, o grupo trabalha com
-                conceitos de programação, desenvolvimento web,
-                organização de projetos e criação de interfaces,
-                colocando em prática os conhecimentos adquiridos
-                durante o curso.
-            </p>
-            <p>
-                Mais do que desenvolver um sistema, o projeto tem
-                como objetivo proporcionar aos alunos uma experiência
-                prática na criação de uma solução tecnológica.
-            </p>
-        </section>
+                                    <div class="stock-item">
+                                        <span>Produto A</span>
+                                        <span class="stock-status">Disponível</span>
+                                    </div>
 
-        <!-- Destaques -->
-        <section class="features">
-            <h2>Por que utilizar o STOKI?</h2>
-            <div class="feature">
-                <img src="" alt="">
-                <p>Organização do seu estoque</p>
-            </div>
+                                    <div class="stock-item">
+                                        <span>Produto B</span>
+                                        <span class="stock-status low">Estoque baixo</span>
+                                    </div>
 
-            <div class="feature">
-                <img src="" alt="">
-                <p>Controle de pedidos e vendas</p>
-            </div>
+                                    <div class="stock-item">
+                                        <span>Produto C</span>
+                                        <span class="stock-status">Disponível</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <div class="feature">
-                <img src="" alt="">
-                <p>Relatórios financeiros</p>
-            </div>
+            <section class="objetivo" id="objetivo">
+                <div class="objetivo-content">
+                    <div class="section-heading">
+                        <h2>Gerenciar seu estoque não precisa ser complicado.</h2>
+                        <p>
+                            A STOKI foi pensada para centralizar informações e
+                            facilitar o acompanhamento dos produtos da sua empresa.
+                        </p>
+                    </div>
 
-            <div class="feature">
-                <img src="" alt="">
-                <p>Acesso em qualquer lugar</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-info">
-            <img src="" alt="Logo STOKI">
-            <p>
-                STOKI — Seu estoque sempre em suas mãos.
-            </p>
-        </div>
-
-        <div class="footer-about">
-            <h3>STOKI</h3>
-            <p>
-                Uma solução desenvolvida para facilitar
-                o gerenciamento de estoques.
-            </p>
-        </div>
-
-        <div class="footer-project">
-            <h3>Projeto</h3>
-            <p>
-                Projeto escolar desenvolvido na
-                ETEC Bartolomeu.
-            </p>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Informações</h3>
-            <p>
-                Desenvolvimento acadêmico
-                e tecnológico.
-            </p>
-        </div>
-    </footer>
-</div>
-```
-</body>
-</html>
+                    <div class="objetivo-highlight">
+                        <strong>Nosso objetivo:</strong>
+                        ajudar você a ter mais controle sobre entradas, saídas e
+                        quantidades disponíveis, reduzindo a dependência de controles
+                        manuais e informações espalhadas.
+                    </div>
+                </div>
+            </section
