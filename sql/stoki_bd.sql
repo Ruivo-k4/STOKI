@@ -50,7 +50,7 @@ set nome = $nome, empresa = $empresa, tel = $tel, email = $email, cpf = $cpf, cn
 where email = $email;
 end $$
 
-CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
+#CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
 SELECT*FROM adms;
 
 CREATE TABLE funcionarios (
@@ -95,7 +95,7 @@ set nome = $nome, email = $email, senha = $senha, adms_id = $adms_id
 where email = $email;
 end $$
 
-CALL cad_fun('nume', 'email', 'senha', 'cpf', 1);
+#CALL cad_fun('nume', 'email', 'senha', 'cpf', 1);
 SELECT*FROM funcionarios;
 
 CREATE TABLE clientes (
@@ -140,7 +140,7 @@ set nome = $nome, tel = $tel, cnpj = $cnpj, cpf = $cpf, adms_id = $adms_id
 where cpf = $cpf;
 end $$
 
-CALL cad_cliente('nome', 'tel', 'cnpj', 'cpf', 1);
+#CALL cad_cliente('nome', 'tel', 'cnpj', 'cpf', 1);
 SELECT*FROM clientes;
 
 CREATE TABLE fornecedores (
@@ -184,7 +184,7 @@ set nome = $nome, tel = $tel, cnpj = $cnpj, cpf = $cpf, adms_id = $adms_id
 where cpf = $cpf;
 end $$
 
-CALL cad_forn('nome', 'tel', 'email', 'cnpj', 'cpf', 'cep');
+#CALL cad_forn('nome', 'tel', 'email', 'cnpj', 'cpf', 'cep');
 SELECT*FROM fornecedores;
 
 CREATE TABLE insumos ( /* materia prima*/
@@ -250,7 +250,7 @@ set nome = $nome, marca = $marca, descricao = $descricao, qntd = $qntd, valor_co
 where id_forn = $id_forn;
 end $$
 
-CALL cad_insumo('nome', 'marca', 'desc', 0, 0.00, 0.00, 0, 0, 0, 'gtin', 1); 
+#CALL cad_insumo('nome', 'marca', 'desc', 0, 0.00, 0.00, 0, 0, 0, 'gtin', 1); 
 SELECT*FROM insumos;
 
 CREATE TABLE compras (
@@ -292,7 +292,7 @@ set fornecedor = $fornecedor, val_total = $val_total, estado = $estado, id_forne
 where id_fornecedor = $id_fornecedor;
 end $$
 
-CALL cad_compra('fornecedor', 0.00, 'estado', 1);
+#CALL cad_compra('fornecedor', 0.00, 'estado', 1);
 SELECT*FROM compras;
 
 CREATE TABLE item_compra (
@@ -343,7 +343,7 @@ where id_compra = $id_compra;
 end $$
 
 
-CALL cad_item_compra(1, 1, 'produto', 0, 0.00, 0.00);
+#CALL cad_item_compra(1, 1, 'produto', 0, 0.00, 0.00);
 SELECT*FROM item_compra;
 
 CREATE TABLE produtos (
@@ -416,18 +416,13 @@ SELECT*FROM produtos;
 CREATE TABLE vendas (
 id INT NOT NULL primary KEY auto_increment,
 cliente_id INT NOT NULL,
-
-adm_id INT,
+produto_id INT NOT NULL,
+adm_id INT NOT NULL,
 adm VARCHAR(100),
 
-produto_id INT NOT NULL,
-produto VARCHAR(100),
-
-val_unitario DECIMAL(18,2),
-qntd_produto INT,
-valor_total DECIMAL(18,2) NOT NULL,
-forma_pagamento VARCHAR(25) NOT NULL,
-situacao VARCHAR(50) NOT NULL,
+val_tot DECIMAL(18,2),
+form_pag VARCHAR(50),
+estado VARCHAR(100),
 
 data_venda DATETIME DEFAULT current_timestamp,
 
@@ -443,15 +438,14 @@ $cliente_id INT,
 $adm_id INT,
 $adm VARCHAR(100),
 $produto_id INT,
-$produto VARCHAR(100),
-$val_unitario DECIMAL(18,2),
-$qntd_produto INT,
-$valor_total DECIMAL(18,2),
-$forma_pagamento VARCHAR(25),
-$situacao VARCHAR(50)
+$val_tot DECIMAL(18,2),
+$form_pag VARCHAR(25),
+$estado VARCHAR(50),
+OUT venda_id INT
 ) BEGIN
-INSERT INTO vendas(cliente_id, adm_id, adm, produto_id, produto, val_unitario, qntd_produto, valor_total, forma_pagamento, situacao)
-VALUES ($cliente_id, $adm_id, $adm, $produto_id, $produto, $val_unitario, $qntd_produto, $valor_total, $forma_pagamento, $situacao);
+INSERT INTO vendas(cliente_id, produto_id, adm_id, adm, val_tot, form_pag, estado)
+VALUES ($cliente_id, $produto_id, $adm_id, $adm, $val_tot, $form_pag, $estado);
+SET venda_id = last_insert_id();
 end $$
 
 delimiter $$
@@ -461,30 +455,25 @@ $cliente_id INT,
 $adm_id INT,
 $adm VARCHAR(100),
 $produto_id INT,
-$produto VARCHAR(100),
-$val_unitario DECIMAL(18,2),
-$qntd_produto INT,
-$valor_total DECIMAL(18,2),
-$forma_pagamento VARCHAR(25),
-$situacao VARCHAR(50)
+$val_tot DECIMAL(18,2),
+$form_pag VARCHAR(25),
+$estado VARCHAR(50)
 ) BEGIN
 update vendas
-set cliente_id = $cliente_id, adm_id = $adm_id, adm = $adm, produto_id = $produto_id, produto = $produto, val_unitario = $val_unitario, qntd_produto = $qntd_produto, valor_total = $valor_total, forma_pagamento = $forma_pagamento, situacao = $situacao
+set clientes_id = $clientes_id, adm_id = $adm_id, adm = $adm, produtos_id = $produtos_id, val_tot = $val_tot, form_pag = $form_pag, estado = $estado
 where produto_id = $produto_id;
 end $$
 
-CALL cad_venda(1, 1, 'adm', 1, 'produto', 0.00, 0, 0.00, 'pagamento', 'situacao');
+#CALL cad_venda(1, 1, 'adm', 1, 0.00, 'forma', 'estado');
 SELECT*FROM vendas;
 
 CREATE TABLE item_venda (
 id INT NOT NULL PRIMARY KEY auto_increment,
-
-produto_id INT NOT NULL,
 venda_id INT NOT NULL,
-
-produto VARCHAR(100),
-quantidade INT NOT NULL,
-val_unitario DECIMAL(18,2) NOT NULL,
+produto_id INT NOT NULL,
+produto varchar(100),
+val_unitario DECIMAL(18,2),
+qntd INT,
 
 foreign key (produto_id) REFERENCES produtos(id),
 foreign key (venda_id) REFERENCES vendas(id)
@@ -517,7 +506,7 @@ set produto_id = $produto_id, venda_id = $venda_id, produto = $produto, quantida
 where venda_id = $venda_id;
 end $$
 
-CALL cad_item_venda(1, 1, 'produto', 0, 0.00);
+#CALL cad_item_venda(1, 1, 'produto', 0, 0.00);
 SELECT*FROM item_venda;
 
 CREATE TABLE mov_estoque (
@@ -541,6 +530,7 @@ SELECT*FROM produtos;
 SELECT*FROM clientes;
 SELECT*FROM vendas;
 
+/*
 delimiter $$
 CREATE TRIGGER trg_valor_unitario_produto
 BEFORE INSERT ON item_venda 
@@ -550,7 +540,7 @@ BEGIN
 		SELECT valor_unitario FROM produtos WHERE id = NEW.produto_id
 	);
 END $$
-
+*/
 
 /* fazer - Clilia
 
@@ -558,4 +548,4 @@ compra - fornecedor
 venda-cliente
 estoque- entrada(compra) i-saida(venda) estoque
             100             2            98
-29/09 15:01*/
+20/10 22:08*/

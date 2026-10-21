@@ -1,14 +1,5 @@
 <?php 
 include 'table.php';
-$dados = [
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f']
-];
-
 $titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
 
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
@@ -17,11 +8,35 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
     if($conexon) {
+        $produtos_table = mysqli_query($conexon, "SELECT*FROM produtos");
+        $lin = mysqli_fetch_all($produtos_table, MYSQLI_ASSOC);
+        $data_produtos = [];
 
+        foreach($lin as $item) {
+            if ($item['qntd'] > $item['qnt_max_repor']) {
+                $status = "Estoque Alto";
+            } else if ($item['qntd'] > $item['qnt_min_repor']) {
+                $status = "Estoque Baixo";
+            } else if($item['qntd'] == 0) {
+                $status = "Sem estoque";
+            }else {
+                $status = "Em estoque";
+            }
+
+            $data_produtos[] = [
+                $item['id'],
+                $item['nome'],
+                $item['marca'],
+                $item['qntd'],
+                $item['descricao'],
+                $status
+            ];
+        }
+        
     }
 
 } catch (Exception $error) {
-    echo "";
+    $res_produtos = [];
 }
 ?>
 
@@ -43,7 +58,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable">
-                <?php createTable($dados, $titles); ?>
+                <?php createTable($data_produtos, $titles); ?>
             </div>
             <dialog id="modalIndex"></dialog>
         </main>

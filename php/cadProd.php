@@ -3,7 +3,7 @@ $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
 $nome = $_POST['nome'];
 $marca = $_POST['marca'];
-$qnt = $_POST['quantidade']
+$qnt = $_POST['quantidade'];
 $val_unit = $_POST['val_unit'];
 $val_vend = $_POST['val_vend'];
 $val_comp = $_POST['val_com'];

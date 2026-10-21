@@ -1,15 +1,7 @@
 <?php 
 include 'table.php';
-$dados = [
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f']
-];
 
-$titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
+$titles = ['Pedido', 'Produtos', 'Data', 'Valor', 'Status', 'Ações'];
 
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -17,7 +9,21 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
     if($conexon) {
+        $pedidos_table = mysqli_query($conexon, "SELECT*FROM vendas");
+        $lin = mysqli_fetch_all($pedidos_table, MYSQLI_ASSOC);
+        $data = [];
 
+        if ($lin) {
+            foreach($lin as $item) {
+                $data[] = [
+                    $item['id'],
+                    $item['nome'],
+                    $item['data_cad'],
+                    $item['val_tot'],
+                    $item['estado']
+                ];
+            }
+        }
     }
 
 } catch (Exception $error) {
@@ -43,7 +49,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable">
-                <?php createTable($dados, $titles); ?>
+                <?php createTable($data, $titles); ?>
             </div>
             <dialog id="modalIndex"></dialog>
         </main>

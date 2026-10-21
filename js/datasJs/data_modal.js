@@ -6,7 +6,7 @@ export const contents = {
                 <button class="header_btn" id="closeModal">X</button>
             </div>
         </div>
-        <form action="../../php/cadProd.php" method="POST">
+        <form action="/STOKI/php/cadProd.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
                 <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
@@ -60,7 +60,7 @@ export const contents = {
                 <button class="header_btn" id="closeModal">X</button>
             </div>
         </div>
-        <form action="../../php/cadPed.php" method="POST">
+        <form action="/STOKI/php/cadPed.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
                 <input type="number" name="qnt" placeholder="Quantidade:" class="info_in in--text">
