@@ -1,4 +1,5 @@
 <?php 
+include 'generateNib.php'
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
 $nome     = $_POST['nome'];
@@ -8,7 +9,7 @@ $telefone = $_POST['telefone'];
 $email    = $_POST['email'];
 $cpf      = $_POST['cpf'];
 $cnpj     = $_POST['cnpj'];
-$nib     = $_POST['nib'];
+
 
 if ($conexon) {
 $call_adm = "call cad_adm('$nome', '$empresa', '$senha', '$email', '$cpf', '$telefone', '$cnpj','$nib')";

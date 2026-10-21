@@ -24,7 +24,7 @@
             <label for="email">Email: <input type="email" class="campo_email" name="email" id="email_adm" required></label>
             <label for="cpf">Cpf: <input type="text" class="campo_cpf" name="cpf" id="cpf_adm"></label>
             <label for="cnpj">Cnpj: <input type="text" class="campo_cnpj" name="cnpj" id="cnpj_adm"></label>
-            <label for="nib">Nib: <input type="text" class="campo_cnpj" name="cnpj" id="cnpj_adm"></label>
+        
             <button type="submit">ENVIAR</button>
         </form>
     </div>
