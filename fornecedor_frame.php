@@ -1,15 +1,6 @@
 <?php 
 include 'table.php';
-$dados = [
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f']
-];
-
-$titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
+$titles = ['Fornecedor', 'Telefone', 'E-mail', 'Cnpj', 'Status', 'Ações'];
 
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

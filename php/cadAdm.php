@@ -1,5 +1,6 @@
 <?php 
 include 'generateNib.php'
+
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
 $nome     = $_POST['nome'];
