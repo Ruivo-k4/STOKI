@@ -8,7 +8,19 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
     if($conexon) {
+        $fornecedor_table = mysqli_query($conexon, "SELECT*FROM fornecedores");
+        $lin = mysqli_fetch_all($fornecedor_table, MYSQLI_ASSOC);
+        $data = [];
 
+        foreach($lin as $item) {
+            $data[] = [
+                $item['nome'],
+                $item['tel'],
+                $item['email'],
+                $item['cnpj'],
+                $status
+            ];
+        }
     }
 
 } catch (Exception $error) {
@@ -34,7 +46,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable">
-                <?php createTable($dados, $titles); ?>
+                <?php createTable($data, $titles); ?>
             </div>
             <dialog id="modalIndex"></dialog>
         </main>
