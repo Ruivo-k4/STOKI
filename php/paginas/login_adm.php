@@ -42,7 +42,7 @@
 
         
 
-        <button type="submit" class="criar conta"><a href="financeiro_frame.php">Enviar</a></button>
+        <button type="submit" class="criar conta"><a href="/STOKI/financeiro_frame.php">Enviar</a></button>
 
         </form>
 
