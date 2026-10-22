@@ -6,6 +6,32 @@
 
     --textPrimarioAsside: #FFFFFF;
     --textSecundarioAsside: #AAB7C8;
-    
+
     --primarioAsside: #247BFF;
+
+    --backGray: #b3c1d3;
+
+    /* CARDS E SUPERFÍCIES */
+    --fundoCard: #FFFFFF;
+    --bordaCard: #E2E8F0;
+
+    /* TEXTOS */
+    --textoPrincipal: #1E293B;
+    --textoSecundario: #64748B;
+    --textoCabecalho: #1E293B;
+
+    /* TABELA */
+    --bordaTabela: #E2E8F0;
+    --fundoLinhaAlternada: #F8FAFC;
+    --fundoLinhaHover: #EFF6FF;
+
+    /* INPUTS */
+    --fundoInput: #FFFFFF;
+    --bordaInput: #CBD5E1;
+    --focoInput: #247BFF30;
+
+    /* SOMBRAS */
+    --sombraCard: #0F172A0A;
+    --sombraCardHover: #0F172A14;
+    --sombraModal: #0F172A30;
 }

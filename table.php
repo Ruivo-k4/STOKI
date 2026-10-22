@@ -14,7 +14,7 @@ function createTable($datas, $titles) {
                         foreach($row as $data) {
                             echo '<td>'.htmlspecialchars($data).'</td>';
                         }
-                        echo '<td><img src="#" alt="editar" class="table__img" id="edtTabBtn"><img src="#" alt="deletar" class="table__img" id="delTabBtn"></td>';
+                        echo '<td id="c-ico"><i class="fa-sharp fa-solid fa-pen-to-square"></i><i class="fa-sharp fa-solid fa-trash"></i></td>';
                     echo '</tr>';
                 }
             echo '</tbody>';
