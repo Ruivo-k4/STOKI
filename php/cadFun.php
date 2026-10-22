@@ -7,7 +7,7 @@ $cpf      = $_POST['cpf'];
 $senha  = $_POST['senha'];
 
 if ($conexon) {
-$call_fun = "call cadastro_fun($nome, $empresa, $senha, $email, $cpf, $telefone, $cnpj)";
+$call_fun = "call cad_fun('$nome', '$empresa', '$senha', '$email', '$cpf', '$telefone', '$cnpj')";
 $cad_fun = mysqli_query($conexon, $call_fun);
 
 while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); }

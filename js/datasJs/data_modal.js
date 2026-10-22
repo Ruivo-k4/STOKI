@@ -111,19 +111,20 @@ export const contents = {
     `,
     fornecedores: `
              <div class="header">
-            <h1 class="header__title">Cadastro Pedidos</h1>
+            <h1 class="header__title">Cadastro Fornecedor</h1>
             <div class="content">
                 <button class="header_btn" id="closeModal">X</button>
             </div>
         </div>
-        <form action="../../php/cadPed.php" method="POST">
+        <form action="../../php/cadForn.php" method="POST">
             <h1 class="modal__title">Informações Produto</h1>
             <div class="info">
-                <input type="number" name="qnt" placeholder="Quantidade:" class="info_in in--text">
-                <input type="number" name="val_unit" placeholder="Valor Unitário:" class="info_in in--text">
-                <input type="number" name="val_vend" placeholder="Valor da venda:" class="info_in in--text">
-                <input type="text" name="forma_pagamento" placeholder="Forma de pagamento:" class="info_in in--text">
-                <input type="text" name="situacao" placeholder="Situação:" class="info_in in--text">
+                <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
+                <input type="text" name="tel" placeholder="Telefone:" class="info_in in--text">
+                <input type="text" name="email" placeholder="E-mail:" class="info_in in--text">
+                <input type="text" name="cnpj" placeholder="CNPJ:" class="info_in in--text">
+                <input type="text" name="cpf" placeholder="CPF:" class="info_in in--text">
+                <input type="text" name="cep" placeholder="CEP:" class="info_in in--text">
                 <div class="group">
                     <input type="number" min="0" name="quantidade" placeholder="Quantidade" class="group__in in--number">
                     <input type="number" min="0" name="peso" placeholder="Peso" class="group__in in--number">
