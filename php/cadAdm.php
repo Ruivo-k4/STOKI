@@ -10,6 +10,7 @@ $email    = $_POST['email'];
 $cpf      = $_POST['cpf'];
 $cnpj     = $_POST['cnpj'];
 
+$nib = geradorNib(1);
 
 
 if ($conexon) {
