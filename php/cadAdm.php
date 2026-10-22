@@ -13,6 +13,7 @@ $cnpj     = $_POST['cnpj'];
 
 $nib = geradorNib(1);
 
+
 if ($conexon) {
 $call_adm = "call cad_adm('$nome', '$empresa', '$senha', '$email', '$cpf', '$telefone', '$cnpj','$nib')";
 $cad_adm = mysqli_query($conexon, $call_adm);

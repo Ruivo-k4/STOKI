@@ -9,7 +9,7 @@ $cpf = $_POST['cpf'];
 $cep = $_POST['cep'];
 
 if ($conexon) {
-    $call_prod = "CALL fornecedores($nome, $tel, $email, $cnpj, $cpf, $cep);";
+    $call_prod = "CALL cad_forn('$nome', '$tel', '$email', '$cnpj', '$cpf', '$cep');";
     $cad_prod = mysqli_query($conexon, $call_prod);
 
     while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); }
