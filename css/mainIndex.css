@@ -31,14 +31,21 @@
     }
 
     #mainTable {
-        background-color: red;
 
         table {
-            background-color: black;
+            background-color: red;
             border-collapse: collapse;
+
+            width: 100%;
             
             thead {
-                background-color: blue;
+                background-color: var(--primarioAsside);
+                color: black;
+
+                th {
+                    text-align: start;
+                    text-transform: uppercase;
+                }
             }
 
             tbody {
