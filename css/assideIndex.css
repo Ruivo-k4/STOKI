@@ -38,9 +38,10 @@
             padding: 0 10%;
             
             .asside__img {
+                background-color: white;
                 width: 50%;
 
-                border-radius: 50%;
+                border-radius: 15%;
 
                 height: auto;
             }

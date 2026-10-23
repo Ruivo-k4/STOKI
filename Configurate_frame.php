@@ -11,10 +11,7 @@
     <div class="container-config">
 
         <header class="header-config">
-            <a class="logo" href="#" aria-label="STOKI">
-                <span class="logo-icon">S</span>
-                <span class="logo-text">STOKI</span>
-            </a>
+            <img src="imgs/logo.png" alt="" srcset="">
 
             <span class="header-label">Gerenciamento de estoque</span>
         </header>
@@ -102,10 +99,17 @@
         </main>
 
         <footer class="footer-config">
-            <span>STOKI</span>
+            <span id="footer-config__btn">Voltar</span>
             <span>Gerenciamento de estoque</span>
         </footer>
 
+        <script>
+            let btnBack = document.querySelector("#footer-config__btn");
+
+            btnBack.addEventListener('click', () => {
+                window.history.back();
+            });
+        </script>
     </div>
 </body>
 </html>

@@ -1,46 +1,7 @@
+@import url(color.css);
 
 * {
     box-sizing: border-box;
-}
-
-:root {
-    /* ASSIDE */
-    --fundoAsside: #0B182A;
-    --selectAsside: #1468F2;
-    --hoverAsside: #0D5FDB;
-
-    --textPrimarioAsside: #FFFFFF;
-    --textSecundarioAsside: #AAB7C8;
-
-    --primarioAsside: #247BFF;
-    --backGray: #b3c1d3;
-
-    /* CARDS E SUPERFÍCIES */
-    --fundoCard: #FFFFFF;
-    --bordaCard: #E2E8F0;
-
-    /* TEXTOS */
-    --textoPrincipal: #1E293B;
-    --textoSecundario: #64748B;
-    --textoCabecalho: #1E293B;
-
-    /* TABELA */
-    --bordaTabela: #E2E8F0;
-    --fundoLinhaAlternada: #F8FAFC;
-    --fundoLinhaHover: #EFF6FF;
-
-    /* INPUTS */
-    --fundoInput: #FFFFFF;
-    --bordaInput: #CBD5E1;
-    --focoInput: #247BFF30;
-
-    /* SOMBRAS */
-    --sombraCard: #0F172A0A;
-    --sombraCardHover: #0F172A14;
-    --sombraModal: #0F172A30;
-
-    /* FUNDO DA PÁGINA */
-    --fundoPagina: #F8FAFC;
 }
 
 body {
@@ -54,6 +15,13 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+img {
+    width: 5dvw;
+}
+#footer-config__btn {
+    cursor: pointer;
 }
 
 .container-config {

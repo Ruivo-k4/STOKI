@@ -49,6 +49,10 @@ if (menu) {
             break
     }
     //#region capturas
-    //#endregion
+    let btnConfig = document.querySelector('#configurateIndex');
 
+    btnConfig.addEventListener('click', () => {
+        window.location.href = "/STOKI/configurate_frame.php";
+    });
+    //#endregion
 }

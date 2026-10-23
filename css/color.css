@@ -8,7 +8,6 @@
     --textSecundarioAsside: #AAB7C8;
 
     --primarioAsside: #247BFF;
-
     --backGray: #b3c1d3;
 
     /* CARDS E SUPERFÍCIES */
@@ -34,4 +33,7 @@
     --sombraCard: #0F172A0A;
     --sombraCardHover: #0F172A14;
     --sombraModal: #0F172A30;
+
+    /* FUNDO DA PÁGINA */
+    --fundoPagina: #F8FAFC;
 }
