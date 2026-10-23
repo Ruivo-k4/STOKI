@@ -5,7 +5,9 @@
         transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
         .data_item {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: ine;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
@@ -119,6 +121,9 @@
     #mainTable {
         width: 100%;
         overflow-x: auto;
+        max-height: 60dvh;
+
+        overflow-y: auto;
 
         background-color: var(--fundoCard);
         border: 1px solid var(--bordaCard);
@@ -139,6 +144,9 @@
             .table__head {
                 background-color: var(--backGray);
                 color: var(--textoCabecalho);
+
+                position: sticky;
+                top: 0;
 
                 width: 100%;
 
@@ -225,7 +233,7 @@
         }
 
         #mainData {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
 
@@ -236,6 +244,9 @@
         }
 
         #mainTable {
+            background-color: black;
+            height: 100%;
+
             table {
                 min-width: 550px;
                 display: grid;

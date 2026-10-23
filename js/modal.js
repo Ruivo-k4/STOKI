@@ -18,14 +18,15 @@ if (main) {
         }
 
         modal.classList.add("modal--ative");
-
         console.log(header);
+        
         if (header) {
             const btns = document.querySelectorAll("#btnHeader");
 
             btns.forEach((btn) => {
                 btn.addEventListener('click', () => {
                     styleModal(modal)
+                    console.log("botão clicado")
 
                     switch (true) {
                         case window.location.href.includes('Produto_frame.php'):
@@ -35,6 +36,8 @@ if (main) {
                             modal.innerHTML = contents.pedidos; break;
                         case window.location.href.includes('fornecedor_frame.php'):
                             modal.innerHTML = contents.fornecedores; break;
+                        case window.location.href.includes('estoque_frame.php'):
+                            break;
                         default:
                             alert("Pagina não encontrada")
                     }

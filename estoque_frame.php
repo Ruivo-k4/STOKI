@@ -1,6 +1,7 @@
 <?php 
 include 'table.php';
-$dados = [
+include 'php/generateNib.php';
+$data = [
     ['a', 'B', 'C', 'd', 'e', 'f'],
     ['a', 'B', 'C', 'd', 'e', 'f'],
     ['a', 'B', 'C', 'd', 'e', 'f'],
@@ -24,7 +25,6 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     echo "";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,7 +32,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STOKI seu estoque na palma da mão</title>
+    <title>STOKI seus produtos na palma da mão</title>
 </head>
 <body>
     <div class="container" id="c-estoque estoqueFrame">
@@ -43,9 +43,18 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
         <main class="main" id="mainIndex">
             <div class="main_item" id="mainData"></div>
             <div class="main_item" id="mainTable">
-                <?php createTable($dados, $titles); ?>
+                <?php createTable($data, $titles); ?>
             </div>
-            <dialog id="modal"></dialog>
+            <dialog id="modalIndex">
+                <div class="header">
+                    <h1 class="header__title">Código NIB</h1>
+                    <div class="content">
+                    <button class="header_btn" id="closeModal">X</button>
+                </div>
+                <div class="modalIndex__body">
+                    <?php ?>
+                </div>
+            </dialog>
         </main>
     </div>
 
