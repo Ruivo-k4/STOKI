@@ -50,7 +50,7 @@ set nome = $nome, empresa = $empresa, tel = $tel, email = $email, cpf = $cpf, cn
 where email = $email;
 end $$
 
-#CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nob');
+#CALL cad_adm('nome', 'empresa', 'tel', 'email', 'cpf', 'cnpj', 'senha', 'nib');
 SELECT*FROM adms;
 
 CREATE TABLE funcionarios (

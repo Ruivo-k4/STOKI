@@ -18,7 +18,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
     if($conexon) {
-
+        
     }
 
 } catch (Exception $error) {
