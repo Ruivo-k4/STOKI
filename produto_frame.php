@@ -2,6 +2,7 @@
 include 'table.php';
 $titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
 
+$data_produtos = [];
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
@@ -10,7 +11,6 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     if($conexon) {
         $produtos_table = mysqli_query($conexon, "SELECT*FROM produtos");
         $lin = mysqli_fetch_all($produtos_table, MYSQLI_ASSOC);
-        $data_produtos = [];
 
         foreach($lin as $item) {
             if ($item['qntd'] > $item['qnt_max_repor']) {
@@ -50,6 +50,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STOKI seus produtos na palma da mão</title>
+    <link rel="icon" href="imgs/logo.png">
 </head>
 <body>
     <div class="container" id="c-estoque produtoFrame">

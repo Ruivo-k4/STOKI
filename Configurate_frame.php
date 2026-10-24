@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STOKI | Configurações</title>
     <link rel="stylesheet" href="css/configuracoes.css">
+    <link rel="icon" href="imgs/logo.png">
 </head>
 <body>
     <div class="container-config">

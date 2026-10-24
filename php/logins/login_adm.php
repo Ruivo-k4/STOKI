@@ -69,7 +69,7 @@ try {
         <!--Colocar o link da página de lembrar a senha-->
         <a href="">Esqueceu a senha?</a>
 
-        <button id="ButtonCriar"><a href="/STOKI/php/cadAdm.php">Criar Conta</a></button>
+        <button id="ButtonCriar"><a href="/STOKI/php/pag_cads/cadAdm.php">Criar Conta</a></button>
 
         <footer class="footer">
 
