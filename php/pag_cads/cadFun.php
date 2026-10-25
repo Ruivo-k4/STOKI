@@ -46,20 +46,14 @@ try {
     <title>Cadastro adm</title>
 </head>
 <body>
-    <div class="cadContainer">
-        <div class="header">
-            <button class="header__btn"><a href="/STOKI/php/logins/login_adm.php">voltar</a></button>
+    <div class="cadContainer" id="cadContainer-index">
+        <div class="cadContainer_form" id="container--form">
+            
         </div>
-        <form action="cadAdm.php" method="POST" class="form">
-            <input type="text" name="nome" placeholder="Nome: " class="form__in form__int-text" required>
-            <input type="text" name="empresa" placeholder="Empresa: " class="form__in form__int-text" required>
-            <input type="tel" name="tel" placeholder="Telefone: " class="form__in form__int-text" required>
-            <input type="email" name="email" placeholder="Email: " class="form__in form__int-text" required>
-            <input type="text" name="cpf" placeholder="CPF: " class="form__in form__int-text" required>
-            <input type="text" name="cnpj" placeholder="CNPJ: " class="form__in form__int-text" required>
-            <input type="password" name="senha" placeholder="Senha: " class="form__in form__int-text" required>
-            <button type="submit">Cadastrar</button>
-        </form>
+        <div class="hero" id="heroCad-index">
+        </div>
     </div>
+
+    <script type="module" src="/STOKI/js/main.js" defer></script>
 </body>
 </html>

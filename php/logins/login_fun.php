@@ -35,23 +35,20 @@ try {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="/STOKI/css/cads.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Funcionario</title>
 </head>
 <body>
-    <div class="login_container" id="indexFrame">
-        <div class="login_containter__content"></div>
-        <div class="hero">
-
+    <div class="cadContainer" id="cadContainer-index">
+        <div class="cadContainer_form" id="container--form">
+            
         </div>
-        <div class="content">
-            <form action="login_fun.php" class="content_form" method="POST">
-                <input type="text" name="nib" id="nibIn" class="content__in" placeholder="NIB: " required>
-                <input type="password" name="senha" id="passIn" class="content__in" placeholder="Senha: " required>
-                <button type="submit" class="content__btn">Fazer Login</button>
-            </form>
+        <div class="hero" id="heroCad-index">
         </div>
     </div>
+
+    <script type="module" src="/STOKI/js/main.js" defer></script>
 </body>
 </html>

@@ -4,3 +4,4 @@ import './header.js';
 import './menu.js';
 import './content.js';
 import './modal.js';
+import './cadIndex.js';

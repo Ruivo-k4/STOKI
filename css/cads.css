@@ -1,3 +1,5 @@
+@import url(./color.css);
+
 * {
     padding: 0;
     margin: 0;
@@ -5,9 +7,33 @@
 }
 
 .cadContainer {
-    .form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .cadContainer_form,
+    .hero {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 500px;
+
+        width: 50dvw;
+    }
+
+    .cadContainer_form {
+        display: flex;
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+        }
+    }
+
+    .hero {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+
+        width: 100%;
     }
 }

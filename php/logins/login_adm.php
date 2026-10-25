@@ -40,47 +40,22 @@ try {
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/STOKI/css/cads.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stoki seu site de gerenciamento de estoque online</title>
 </head>
 
 <body>
-    <div class="login_container" id="indexFrame">
-        <header class="header">
-            <a href="/STOKI/index.html">Voltar</a>
-        </header>
-
-        <h2>Faça login para continuar</h2>
-
-        <form action="/STOKI/php/logins/login_adm.php" method="post">
-            <input type="email" name="email" placeholder="E-mail" id="email" required>
-            <input type="password" name="senha" placeholder="Senha" id="senha">
+    <div class="cadContainer" id="cadContainer-index">
+        <div class="cadContainer_form" id="container--form">
             
-            <button type="submit" class="criar conta">Enviar</button>
-        </form>
-
-        <div class="box_marca">
-            <input type="checkbox" placeholder="Lembrar de mim" id="caixa_confirm">
-            <label for="resultado">Lembrar de mim</label>
         </div>
-
-        <!--Colocar o link da página de lembrar a senha-->
-        <a href="">Esqueceu a senha?</a>
-
-        <button id="ButtonCriar"><a href="/STOKI/php/pag_cads/cadAdm.php">Criar Conta</a></button>
-
-        <footer class="footer">
-
-            <div class="mensagem_form" id="mensagem">
-                Coloque as informações necessárias
-            </div>
-
-        </footer>
+        <div class="hero" id="heroCad-index">
+        </div>
     </div>
 
-    <script type="module" src="js/main.js" defer></script><!--Local dos imports-->
+    <script type="module" src="/STOKI/js/main.js" defer></script>
 </body>
 
 </html>
