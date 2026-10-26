@@ -4,6 +4,7 @@ import { content } from "./datasJs/data_cadHero.js";
 
 function displayHero(hero) {
     hero.innerHTML = `
+        <button id="hero_btnBack"><i class="fa-solid fa-arrow-left-long"></i></button>
         <img src="/STOKI/imgs/logo.png" alt="STOKI" class="hero__img">
         <h1 class="hero__title">Mais controle. Mais resultado</h1>
         <i class="fa-sharp fa-solid fa-box-open"></i>
@@ -34,4 +35,10 @@ if (cadConteiner) {
         case window.location.href.includes('login_fun.php'):
             cForm.innerHTML = content.lFun; break;
     }
+
+    let btnBack = document.querySelector("#hero_btnBack");
+
+    btnBack.addEventListener('click', () => {
+        window.history.back();
+    });
 }

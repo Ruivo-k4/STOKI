@@ -1,5 +1,9 @@
-<?php 
+<?php
+session_start();
+
 include 'table.php';
+include 'php/global_vals.php';
+include 'php/pesquisa/pesq_table.php';
 include 'php/generateNib.php';
 $data = [
     ['a', 'B', 'C', 'd', 'e', 'f'],
@@ -17,9 +21,14 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
 
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
-    if($conexon) {
-        
+    if (!$conexon) {
+        echo "";
+        exit;
     }
+
+    $user_id = $_SESSION['user_id'] ?? null;
+    $exist = pesq_table('adms', 'email', 'nib', $user_id);
+    
 
 } catch (Exception $error) {
     echo "";
@@ -53,10 +62,13 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
                 <div class="header">
                     <h1 class="header__title">Código NIB</h1>
                     <div class="content">
-                    <button class="header_btn" id="closeModal">X</button>
+                        <button class="header_btn" id="closeModal">X</button>
+                    </div>
                 </div>
                 <div class="modalIndex__body">
-                    <?php ?>
+                    <section id="modalIndex__section">
+                        <h2 class="modal_title"><?php echo $exist; ?></h2>
+                    </section>
                 </div>
             </dialog>
         </main>

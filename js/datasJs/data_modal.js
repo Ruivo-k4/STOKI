@@ -166,4 +166,7 @@ export const contents = {
             </div>
         </form>
     `,
+    estoque: `
+           
+    `
 }

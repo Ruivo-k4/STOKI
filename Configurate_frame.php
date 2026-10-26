@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+include './php/global_vals.php';
+
+try { //impede a mensagem de erro de banco, evitar quebrar CSS
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+    $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
+
+    if (!$conexon) {
+        echo "";
+        exit;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $permits = $_POST['check-box'] ?? [];
+        $_SESSION["permits"] = $permits;
+    }
+        
+        
+} catch (Exception $error) {
+    echo "";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -73,7 +98,7 @@
                         </div>
 
                         <a class="button button-primary"
-                           href="html/cadFun_indexFrame.php">
+                           href="./php/pag_cads/cadFun.php">
                             Acessar cadastro <span>→</span>
                         </a>
                     </article>
@@ -89,9 +114,81 @@
                         </div>
 
                         <a class="button button-secondary"
-                           href="html/cadAdm_indexFrame.php">
+                           href="./php/pag_cads/cadFun.php">
                             Acessar cadastro <span>→</span>
                         </a>
+                    </article>
+
+                </div>
+
+                <div class="section-heading">
+                    <h2>Restrições</h2>
+                    <p>Configure as visualizações dos funcionarios</p>
+                </div>
+
+                <div class="config-grid">
+                    <article class="config-card config-card-column">
+                        <div class="card-icon">♙</div>
+
+                        <div class="card-content">
+                            <h3>Permições de telas</h3>
+                            <p>
+                                Modifique a forma de visualização dos funcionarios
+                            </p>
+                        </div>
+
+                        <button class="button button-primary" id="btn-configDisplay">
+                            Visualização Geral <span></span>
+                        </button>
+
+                        <form action="" method="post" class="boxes-config">
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__financa" value="financas">
+                                <label for="check-box__financa">Finanças</label>
+                            </div>
+
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__config" value="configuracoes">
+                                <label for="check-box__config">Configurações</label>
+                            </div>
+
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__forn" value="fornecedores">
+                                <label for="check-box__forn">Fornecedores</label>
+                            </div>
+
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__nib" value="nib">
+                                <label for="check-box__nib">Código NIB</label>
+                            </div>
+
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__ped" value="Pedidos">
+                                <label for="check-box__ped">Pedidos</label>
+                            </div>
+
+                            <div class="boxes">
+                                <input type="checkbox" name="check-box[]" id="check-box__cad" value="cadastro">
+                                <label for="check-box__cad">Cadastro</label>
+                            </div>
+
+                            <button type="submit" id="btnSubmit">Salvar</button>
+                        </form>
+                    </article>
+
+                    <article class="config-card config-card-column">
+                        <div class="card-icon">▤</div>
+
+                        <div class="card-content">
+                            <h3>Cadastro de administrador</h3>
+                            <p>
+                                Acesse a tela de cadastro de administrador.
+                            </p>
+                        </div>
+
+                        <button class="button button-secondary">
+                            Acessar cadastro <span>→</span>
+                        </button>
                     </article>
 
                 </div>
@@ -111,6 +208,8 @@
                 window.history.back();
             });
         </script>
+
+        <script src="./js/buttonsConfig.js"></script>
     </div>
 </body>
 </html>
