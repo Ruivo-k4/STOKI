@@ -18,5 +18,7 @@ if ($conexon) {
     $cad_prod = mysqli_query($conexon, $call_prod);
 
     while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); }
+    header("location:../Produto_frame.php");
 }
+
 ?>
