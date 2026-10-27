@@ -12,6 +12,7 @@ if ($conexon) {
     $call_prod = "CALL cad_forn('$nome', '$tel', '$email', '$cnpj', '$cpf', '$cep');";
     $cad_prod = mysqli_query($conexon, $call_prod);
 
-    while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); }
+    while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); };
+    header("location:../fornecedor_frame.php");
 }
 ?>

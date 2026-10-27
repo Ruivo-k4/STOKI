@@ -1,6 +1,6 @@
 <?php 
 include 'table.php';
-$titles = ['Fornecedor', 'Telefone', 'E-mail', 'Cnpj', 'Status', 'Ações'];
+$titles = ['Cliente', 'Telefone', 'E-mail', 'Cnpj', 'Cep', 'Ações'];
 
 $data = [];
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
@@ -9,7 +9,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
     if($conexon) {
-        $fornecedor_table = mysqli_query($conexon, "SELECT*FROM fornecedores");
+        $fornecedor_table = mysqli_query($conexon, "SELECT*FROM clientes");
         $lin = mysqli_fetch_all($fornecedor_table, MYSQLI_ASSOC);
 
         foreach($lin as $item) {
