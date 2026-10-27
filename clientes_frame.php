@@ -18,7 +18,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
                 $item['tel'],
                 $item['email'],
                 $item['cnpj'],
-                $status
+                $item['cep']
             ];
         }
     }

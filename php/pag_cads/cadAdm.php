@@ -26,7 +26,7 @@ try {
             echo "<script>alert('Este cadastro já existe')</script>";
         } else {
             $call = mysqli_query($conexon, "CALL cad_adm('{$name}', '{$empresa}', '{$tel}', '{$email}', '{$cpf}', '{$cnpj}', '{$pass}', '{$nib}')");
-            echo "<script>alert('cadastro realizado com sucesso')</script>";
+            echo "<script>window.location.href='/STOKI/php/logins/login_adm.php'</script>";
         }
     }
 
