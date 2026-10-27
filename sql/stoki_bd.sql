@@ -524,6 +524,17 @@ data_mov DATETIME DEFAULT current_timestamp,
 FOREIGN KEY (id_produto) REFERENCES produtos(id)
 );
 
+delimiter $$
+create procedure inserir_produto_estoque
+()
+begin
+insert into estoque (id, nome, marca, descricao, qntd, valor_unitario, valor_venda, valor_venda, valor_compra, peso, lote, qnt_min_repor, qnt_max_repor, gtin, date_cad)
+select id, nome, marca, descricao, 0, valor_unitario, valor_venda, valor_venda, valor_compra, peso, lote, qnt_min_repor, qnt_max_repor, gtin, date_cad from produtos  
+where not exists( select 1 from estoque 
+where id=id);
+end $$
+call inserir_produto_estoque();
+
 SELECT*FROM adms;
 SELECT*FROM funcionarios;
 SELECT*FROM produtos;
