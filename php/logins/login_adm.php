@@ -57,6 +57,8 @@ try {
         </div>
         <div class="hero" id="heroCad-index">
         </div>
+
+        <input type="text" value="<?php echo $_SESSION['user_login_state']; ?>" style="display: none;" id="capture-id__in">
     </div>
 
     <script type="module" src="/STOKI/js/main.js" defer></script>

@@ -36,6 +36,8 @@ if (main) {
                             modal.innerHTML = contents.pedidos; break;
                         case window.location.href.includes('fornecedor_frame.php'):
                             modal.innerHTML = contents.fornecedores; break;
+                        case window.location.href.includes('clientes_frame.php'):
+                            modal.innerHTML = contents.clientes; break;
                         default:
                             console.log("Pagina não encontrada")
                     }

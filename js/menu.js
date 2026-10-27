@@ -16,6 +16,7 @@ if (menu) {
             <li id="aProd"><a href="Produto_frame.php">Produtos</a></li>
             <li id="aPed"><a href="pedidos_frame.php">Pedidos</a></li>
             <li id="aForn"><a href="fornecedor_frame.php">Fornecedor</a></li>
+            <li id="aCli"><a href="clientes_frame.php">Clientes</a></li>
         </ul>
     </nav>
     <div class="item" id="assideActions">
@@ -46,6 +47,10 @@ if (menu) {
         case window.location.href.includes('fornecedor_frame.php'):
             let aForn = document.querySelector("#aForn");
             aForn.classList.add('selectAsside');
+            break
+        case window.location.href.includes('clientes_frame.php'):
+            let aCli = document.querySelector("#aCli");
+            aCli.classList.add('selectAsside');
             break
     }
     //#region capturas

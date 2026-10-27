@@ -30,7 +30,14 @@ if (main) {
         { img: "", title: "Devedores", value: 0},
         { img: "", title: "Dívidas", value: 0},
         { img: "", title: "Fornecedores inativos", value: 0}
-    ]
+    ];
+
+    const clienteData = [
+        { img: "", title: "Total de clientes", value: 0},
+        { img: "", title: "Devedores", value: 0},
+        { img: "", title: "Dívidas", value: 0},
+        { img: "", title: "Fornecedores inativos", value: 0}
+    ];
 
     function createBoxes(data) {
         data.forEach((element) => {
@@ -61,6 +68,9 @@ if (main) {
             break
         case window.location.href.includes('fornecedor_frame.php'):
             createBoxes(fornecedorData);
+            break
+        case window.location.href.includes('clientes_frame.php'):
+            createBoxes(clienteData);
             break
     }
     //#endregion

@@ -1,5 +1,5 @@
 <?php
-include 'pesquisa/pesq_cliente.php';
+include 'pesquisa/pesq_table.php';
 
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
@@ -12,7 +12,7 @@ $forma_pagamento = $_POST['forma_pagamento'];
 $situacao = $_POST['situacao'];
 
 if ($conexon) {
-    $cliente_id = pesq_cliente($tel);
+    $cliente_id = pesq_table('clientes', 'id', 'tel', $tel);
 
     $call_prod = "CALL cad_venda('$cliente_id', 1, 'adm', 1, 0.00, 'forma', 'estado')";
     $cad_prod = mysqli_query($conexon, $call_prod);

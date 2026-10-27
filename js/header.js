@@ -33,6 +33,14 @@ if (header) {
             placePag: "Pesquise seu fornecedor..."
         }
     ];
+    const dataCliente = [
+        {
+            pagina: "Clientes",
+            subtexto: "Veja  seus clientes de forma rápida e organizada",
+            btnText: "+ Novo Cliente",
+            placePag: "Pesquise seu cliente..."
+        }
+    ]
 
     function displayHeader(data) {
         data.forEach(element => {
@@ -66,6 +74,9 @@ if (header) {
             break;
         case window.location.href.includes("fornecedor_frame.php"):
             displayHeader(dataFornecedor);
+            break;
+        case window.location.href.includes("clientes_frame.php"):
+            displayHeader(dataCliente);
             break;
     }
 }
