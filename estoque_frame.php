@@ -4,7 +4,7 @@ session_start();
 include 'table.php';
 include 'php/global_vals.php';
 include 'php/pesquisa/pesq_table.php';
-include 'php/generateNib.php';
+
 $data = [
     ['a', 'B', 'C', 'd', 'e', 'f'],
     ['a', 'B', 'C', 'd', 'e', 'f'],
@@ -27,8 +27,7 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
     }
 
     $user_id = $_SESSION['user_id'] ?? null;
-    $exist = pesq_table('adms', 'email', 'nib', $user_id);
-    
+    $exist = pesq_table('adms', 'id', 'nib', $user_id);
 
 } catch (Exception $error) {
     echo "";
