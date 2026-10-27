@@ -2,7 +2,7 @@ console.log("modal.js is on");
 
 import { styleModal } from "./style_modal.js";
 import { contents } from "./datasJs/data_modal.js"
-import { contents } from "./datasJs/data_update.js"
+
 
 let header = document.querySelector("#headerIndex");
 let main = document.querySelector("#mainIndex");
@@ -38,8 +38,6 @@ if (main) {
                         case window.location.href.includes('fornecedor_frame.php'):
                             modal.innerHTML = contents.fornecedores; break;
                         case window.location.href.includes('clientes_frame.php'):
-                            modal.innerHTML = contents.clientes; break;
-                        case window.location.href.includes('update_frame.php'):
                             modal.innerHTML = contents.clientes; break;
                         default:
                             console.log("Pagina não encontrada")
