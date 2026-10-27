@@ -2,6 +2,7 @@ console.log("modal.js is on");
 
 import { styleModal } from "./style_modal.js";
 import { contents } from "./datasJs/data_modal.js"
+import { contents } from "./datasJs/data_update.js"
 
 let header = document.querySelector("#headerIndex");
 let main = document.querySelector("#mainIndex");
