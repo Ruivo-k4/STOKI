@@ -5,6 +5,8 @@ import { content } from "./datasJs/data_menu.js";
 let menu = document.querySelector("#assideIndex");
 
 if (menu) {
+    let user_state_in = document.querySelector(".user_state_global");
+    console.log(user_state_in)
     //#region criando menu
     menu.innerHTML = content.completo;
     //#endregion

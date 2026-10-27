@@ -5,4 +5,5 @@ import './menu.js';
 import './content.js';
 import './modal.js';
 import './cadIndex.js';
+import './user_state_cature.js';
 import './buttonsConfig.js';

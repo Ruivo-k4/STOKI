@@ -23,7 +23,7 @@ try {
 
         if($exist) {
             if ($exist_pass == $pass) {
-                $_SESSION['user_login_state'] = TRUE;
+                $_SESSION['user_login_state'] = 1;
                 $_SESSION['user_id'] = $exist;
 
                 echo "<script>window.location.href='/STOKI/financeiro_frame.php'</script>";
@@ -56,9 +56,10 @@ try {
             
         </div>
         <div class="hero" id="heroCad-index">
+            
         </div>
     </div>
-
+    
     <script type="module" src="/STOKI/js/main.js" defer></script>
 </body>
 
