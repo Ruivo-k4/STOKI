@@ -1,4 +1,4 @@
-export const content = {
+export const contents = {
     produto: `
     <div class="header">
             <h1 class="header__title">Cadastro Produto</h1>
