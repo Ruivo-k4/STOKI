@@ -12,12 +12,13 @@ export const contents = {
                 <input type="text" name="nome" placeholder="Nome:" class="info_in in--text">
                 <input type="text" name="marca" placeholder="Marca:" class="info_in in--text">
                 <input type="text" name="gtin" placeholder="Código de barras:" class="info_in in--text">
+                <input type="text" name="local_estoque" placeholder="Localização Estoque:" class="info_in in--text">
                 <div class="group">
-                    <input type="number" min="0" name="quantidade" placeholder="Quantidade" class="group__in in--number">
-                    <input type="number" min="0" name="peso" placeholder="Peso" class="group__in in--number">
+                    <input type="number"  step="any" min="0" name="quantidade" placeholder="Quantidade" class="group__in in--number">
+                    <input type="number"  step="any" min="0" name="peso" placeholder="Peso" class="group__in in--number">
                 </div>
                 <details class="desc">
-                    <summary>DETALHES</summary>
+                    <summary>Descrição</summary>
                     <input type="text" name="desc" class="desc__in" placeholder="Coloque sua descrição aqui...">
                 </details>
             </div>
@@ -25,8 +26,8 @@ export const contents = {
             <div class="estoque">
                 <input type="text" name="lote" placeholder="Lote:" class="estoque__in in--text">
                 <div class="group">
-                    <input type="number" min="0" name="min_repor" placeholder="Min. para repor" class="group__in in--number">
-                    <input type="number" min="0" name="max_repor" placeholder="Max. para repor" class="group__in in--number">
+                    <input type="number"  step="any" min="0" name="min_repor" placeholder="Min. para repor" class="group__in in--number">
+                    <input type="number"  step="any" min="0" name="max_repor" placeholder="Max. para repor" class="group__in in--number">
                 </div>
             </div>
             <h1 class="modal__title">Valores Produto</h1>
@@ -34,17 +35,17 @@ export const contents = {
                 <div class="card">
                     <h2 class="card__title">Valor Unitário</h2>
                     <label for="val_unit">R$</label>
-                    <input type="number" name="val_unit" min="0">
+                    <input type="number"  step="any" name="val_unit" min="0">
                 </div>
                 <div class="card">
                     <h2 class="card__title">Valor Venda</h2>
                     <label for="val_vend">R$</label>
-                    <input type="number" name="val_vend" min="0">
+                    <input type="number"  step="any" name="val_vend" min="0">
                 </div>
                 <div class="card">
                     <h2 class="card__title">Valor Compra</h2>
                     <label for="val_com">R$</label>
-                    <input type="number" name="val_com" min="0">
+                    <input type="number"  step="any" name="val_com" min="0">
                 </div>
             </div>
             <div class="footer">
@@ -124,7 +125,7 @@ export const contents = {
                 <input type="text" name="email" placeholder="E-mail:" class="info_in in--text">
                 <input type="text" name="cnpj" placeholder="CNPJ:" class="info_in in--text">
                 <input type="text" name="cpf" placeholder="CPF:" class="info_in in--text">
-                <input type="text" name="cep" placeholder="CEP:" class="info_in in--text">
+                <input type="text" name="cep" max="9999999" placeholder="CEP:" class="info_in in--text">
                 
                 <details class="desc">
                     <summary>DETALHES</summary>
@@ -153,7 +154,7 @@ export const contents = {
                 <input type="text" name="email" placeholder="E-mail:" class="info_in in--text">
                 <input type="text" name="cnpj" placeholder="CNPJ:" class="info_in in--text">
                 <input type="text" name="cpf" placeholder="CPF:" class="info_in in--text">
-                <input type="text" name="cep" placeholder="CEP:" class="info_in in--text">
+                <input type="text" name="cep" max="9999999" placeholder="CEP:" class="info_in in--text">
                 
                 <details class="desc">
                     <summary>DETALHES</summary>

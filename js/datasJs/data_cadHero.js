@@ -8,7 +8,7 @@ export const content = {
             <input type="tel" name="tel" placeholder="Telefone: " class="form__in form__int-text" required>
             <input type="email" name="email" placeholder="Email: " class="form__in form__int-text" required>
             <input type="text" name="cpf" placeholder="CPF: " class="form__in form__int-text" required>
-            <input type="text" name="cnpj" placeholder="CNPJ: " class="form__in form__int-text" required>
+            <input type="text" name="cnpj" placeholder="CNPJ: " class="form__in form__int-text" >
             <input type="password" name="senha" placeholder="Senha: " class="form__in form__int-text" required>
             <button type="submit">Cadastrar</button>
         </form>

@@ -12,9 +12,10 @@ $lote = $_POST['lote'];
 $min_rep = $_POST['min_repor'];
 $max_rep = $_POST['max_repor'];
 $gtin = $_POST['gtin'];
+$local = $_POST['local_estoque'];
 
 if ($conexon) {
-    $call_prod = "CALL cad_prod('$nome', '$marca', 'desc', '$qnt', '$val_unit', '$val_vend', '$val_comp', '$peso', '$lote', '$min_rep', '$max_rep', '$gtin')";
+    $call_prod = "CALL cad_produto('$nome', '$marca', 'desc', '$qnt', '$val_unit', '$val_vend', '$val_comp', '$peso', '$lote', '$min_rep', '$max_rep', '$gtin', '$local');";
     $cad_prod = mysqli_query($conexon, $call_prod);
 
     while (mysqli_next_result($conexon)) { mysqli_store_result($conexon); }

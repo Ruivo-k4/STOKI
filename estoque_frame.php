@@ -2,32 +2,32 @@
 session_start();
 
 include 'table.php';
-include 'php/global_vals.php';
-include 'php/pesquisa/pesq_table.php';
+include'php/pesquisa/pesq_table.php';
 
-$data = [
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f'],
-    ['a', 'B', 'C', 'd', 'e', 'f']
-];
+$titles = ['Produto', 'Movimento', 'Quantidade', 'Local', 'Valor Unitario', 'Data', 'Ações'];
 
-$titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
-
+$data = [];
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 
-    if (!$conexon) {
-        echo "";
-        exit;
-    }
+    $exist = pesq_table('adms', 'id', 'nib', $_SESSION['user_id']);
 
-    $user_id = $_SESSION['user_id'] ?? null;
-    $exist = pesq_table('adms', 'id', 'nib', $user_id);
+    if($conexon) {
+        $estoque_table = mysqli_query($conexon, "SELECT*FROM mov_estoque");
+        $lin = mysqli_fetch_all($estoque_table, MYSQLI_ASSOC);
+
+        foreach($lin as $item) {
+            $data[] = [
+                $item['nome'],
+                $item['tel'],
+                $item['email'],
+                $item['cnpj'],
+                $item['cep']
+            ];
+        }
+    }
 
 } catch (Exception $error) {
     echo "";

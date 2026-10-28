@@ -4,6 +4,7 @@ include '../pesquisa/pesq_table.php';
 
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 $nib = geradorNib(1);
+echo "<script>alert('$nib')</script>";
 
 try {
     if(!$conexon) {
@@ -12,20 +13,23 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $name = $_POST['nome'] ?? '';
-        $empresa = $_POST['empresa'] ?? '';
-        $tel = $_POST['tel'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $cpf = $_POST['cpf'] ?? '';
-        $cnpj = $_POST['cnpj'] ?? '';
-        $pass = $_POST['senha'] ?? '';
+        $name = $_POST['nome'] ?? 'nome';
+        $empresa = $_POST['empresa'] ?? 'empresa';
+        $tel = $_POST['tel'] ?? 'telefone';
+        $email = $_POST['email'] ?? 'email';
+        $cpf = $_POST['cpf'] ?? 'cpf';
+        $cnpj = $_POST['cnpj'] ?? 'cnpj';
+        $pass = $_POST['senha'] ?? 'senha';
         
         $exist = pesq_table('adms', 'email', 'id', $email);
 
         if($exist) {
             echo "<script>alert('Este cadastro já existe')</script>";
         } else {
-            $call = mysqli_query($conexon, "CALL cad_adm('{$name}', '{$empresa}', '{$tel}', '{$email}', '{$cpf}', '{$cnpj}', '{$pass}', '{$nib}')");
+            echo "<script>alert('$name, $empresa, $tel, $email, $cnpj, $cpf, $nib')</script>";
+            
+            $call = mysqli_query($conexon, "CALL cad_adm('$name', '$empresa', '$pass', '$tel', '$email', '$cnpj', '$cpf', '$nib')");
+
             echo "<script>window.location.href='/STOKI/php/logins/login_adm.php'</script>";
         }
     }
