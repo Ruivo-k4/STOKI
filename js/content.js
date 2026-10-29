@@ -5,38 +5,38 @@ if (main) {
     let boxes = document.querySelector("#mainData");
 
     const produtosData = [
-        { img: "", title: "Total produto", value: 0 },
-        { img: "", title: "Em estoque", value: 0 },
-        { img: "", title: "Em reposição", value: 0 },
-        { img: "", title: "Em excesso", value: 0 }
+        { img: "fa-sharp fa-solid fa-boxes-stacked", title: "Total produto", value: 0 },
+        { img: "fa-shar fa-solid fa-grip", title: "Em estoque", value: 0 },
+        { img: "fa-solid fa-truck-ramp-box", title: "Em reposição", value: 0 },
+        { img: "fa-solid fa-circle-xmark", title: "Em excesso", value: 0 }
     ];
 
     const pedidosData = [
-        { img: "", title: "Total pedidos", value: 0 },
-        { img: "", title: "Pedidos Pendentes", value: 0 },
-        { img: "", title: "Pedidos entregues", value: 0 },
-        { img: "", title: "Cancelados", value: 0 }
+        { img: "fa-duotone fa-solid fa-newspaper", title: "Total pedidos", value: 0 },
+        { img: "fa-duotone fa-solid fa-hourglass-half", title: "Pedidos Pendentes", value: 0 },
+        { img: "fa-solid fa-circle-check", title: "Pedidos entregues", value: 0 },
+        { img: "fa-solid fa-circle-xmark", title: "Cancelados", value: 0 }
     ];
 
     const estoqueData = [
-        { img: "", title: "Total Itens", value: 0 },
-        { img: "", title: "Em estoque", value: 0 },
-        { img: "", title: "Em reposição", value: 0 },
-        { img: "", title: "Em excesso", value: 0 }
+        { img: "fa-sharp fa-solid fa-boxes-stacked", title: "Total Itens", value: 0 },
+        { img: "fa-shar fa-solid fa-grip", title: "Em estoque", value: 0 },
+        { img: "fa-solid fa-truck-ramp-box", title: "Em reposição", value: 0 },
+        { img: "fa-solid fa-circle-xmark", title: "Em excesso", value: 0 }
     ];
 
     const fornecedorData = [
-        { img: "", title: "Total de fornecedores", value: 0},
-        { img: "", title: "Devedores", value: 0},
-        { img: "", title: "Dívidas", value: 0},
-        { img: "", title: "Fornecedores inativos", value: 0}
+        { img: "fa-solid fa-user-tie", title: "Total de fornecedores", value: 0},
+        { img: "fa-solid fa-user-minus", title: "Devedores", value: 0},
+        { img: "fa-solid fa-circle-xmark", title: "Dívidas", value: 0},
+        { img: "fa-solid fa-user-slash", title: "Fornecedores inativos", value: 0}
     ];
 
     const clienteData = [
-        { img: "", title: "Total de clientes", value: 0},
-        { img: "", title: "Devedores", value: 0},
-        { img: "", title: "Dívidas", value: 0},
-        { img: "", title: "Fornecedores inativos", value: 0}
+        { img: "fa-solid fa-user-tie", title: "Total de Clientes", value: 0},
+        { img: "fa-solid fa-user-minus", title: "Devedores", value: 0},
+        { img: "fa-solid fa-circle-xmark", title: "Dívidas", value: 0},
+        { img: "fa-solid fa-user-slash", title: "Clientes inativos", value: 0}
     ];
 
     function createBoxes(data) {
@@ -45,8 +45,8 @@ if (main) {
             div.classList.add('data_item');
 
             div.innerHTML = `
-                <img src="${element.img}" alt="${element.title}">
-                <div>
+                <i class="${element.img} data__i"></i>
+                <div class="group">
                     <h3>${element.title}</h3>
                     <p>${element.value}</p>
                 </div>

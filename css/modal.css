@@ -1,11 +1,18 @@
 .modal--ative {
-    background-color: var(--surface-card, #ffffff);
+    background-image: url(/STOKI/imgs/backgernerico.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+
+
     border-radius: 12px;
     box-shadow: var(--shadow-modal, 0 20px 25px -5px rgba(15, 23, 42, 0.1));
     border: 1px solid var(--border-subtle, #e2e8f0);
     color: var(--text-primary, #0f172a);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-y: auto;
+
+    gap: 2rem;
 
     .header,
     .info,
@@ -25,7 +32,7 @@
     .modal__title {
         font-size: 1.3rem;
         font-weight: 600;
-        color: var(--fundoAsside, #0b182a);
+        color: orange;
     }
 
     .header {
@@ -87,16 +94,18 @@
 
         .desc {
             padding-left: 1%;
-            margin-top: 1%;
+            margin-top: 5%;
             margin-bottom: 2%;
 
+            color: white;
+
             .desc__in {
-                height: 25dvh;
+                height: 5dvh;
                 width: 100%;
 
                 padding-top: 10px;
                 /* Espaço interno no topo */
-                padding-bottom: 160px;
+                padding-bottom: 140px;
                 /* Espaço gigante embaixo para fazê-lo ficar quadrado */
                 padding-left: 12px;
                 padding-right: 12px;

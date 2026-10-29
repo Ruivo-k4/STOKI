@@ -53,8 +53,6 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
             </div>
             <dialog id="modalIndex"></dialog>
         </main>
-
-        <input type="text" class="user_state_global" value="<?php echo $_SESSION['user_login_state']; ?>">
     </div>
 
     <script type="module" src="js/main.js" defer></script>

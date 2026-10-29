@@ -1,6 +1,6 @@
 <?php 
 include 'table.php';
-$titles = ['Código', 'Produto', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
+$titles = ['Código', 'Produto','marca', 'Categoria', 'Quantidade', 'Localização', 'Status', 'Ações'];
 
 $data_produtos = [];
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
@@ -27,8 +27,9 @@ try { //impede a mensagem de erro de banco, evitar quebrar CSS
                 $item['id'],
                 $item['nome'],
                 $item['marca'],
+                $item['categoria'],
                 $item['qntd'],
-                $item['descricao'],
+                $item['local_produto'],
                 $status
             ];
         }

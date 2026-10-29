@@ -1,8 +1,8 @@
 console.log("modal.js is on");
 
 import { styleModal } from "./style_modal.js";
-import { contents } from "./datasJs/data_modal.js"
-
+import { contents } from "./datasJs/data_modal.js";
+import { capturarApi } from "./apis/gtin.js";
 
 let header = document.querySelector("#headerIndex");
 let main = document.querySelector("#mainIndex");
@@ -20,7 +20,7 @@ if (main) {
 
         modal.classList.add("modal--ative");
         console.log(header);
-        
+
         if (header) {
             const btns = document.querySelectorAll("#btnHeader");
 
@@ -56,7 +56,28 @@ if (main) {
                     btnCan.addEventListener('click', () => {
                         close(modal);
                     });
+
+                    let nome = document.querySelector("#nome__in");
+                    let marca = document.querySelector("#marca__in");
+                    let peso = document.querySelector("#peso__in");
+
+                    let gtin_in = document.querySelector("#gtin__in");
+
+                    gtin_in.addEventListener('input', () => {
+                        console.log(gtin_in.value);
+
+                        capturarApi(gtin_in.value)
+                            .then(produto => {
+                                if (!produto) return;
+
+                                nome.value = produto.nome || "";
+                                marca.value = produto.marca || "";
+                                peso.value = produto.peso || "";
+                            });
+                    });
+
                 });
+
             })
         }
     }

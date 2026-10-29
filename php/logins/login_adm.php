@@ -26,7 +26,7 @@ try {
                 $_SESSION['user_login_state'] = 1;
                 $_SESSION['user_id'] = $exist;
 
-                echo "<script>window.location.href='/STOKI/financeiro_frame.php'</script>";
+                echo "<script>window.location.href='/STOKI/produto_frame.php'</script>";
             } else {
                 echo "<script>alert('Email ou Senha incopativeis')</script>";
             }

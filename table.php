@@ -12,7 +12,7 @@ function createTable($datas, $titles) {
                 foreach($datas as $row) {
                     echo '<tr class="table__data">';
                         foreach($row as $data) {
-                            echo '<td>'.htmlspecialchars($data).'</td>';
+                            echo '<td>'.htmlspecialchars($data ?? '').'</td>';
                         }
                         echo '<td id="c-ico"><i class="algum fa-sharp fa-solid fa-pen-to-square"></i><i class="fa-sharp fa-solid fa-trash"></i></td>';
                     echo '</tr>';

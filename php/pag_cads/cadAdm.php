@@ -4,7 +4,6 @@ include '../pesquisa/pesq_table.php';
 
 $conexon = mysqli_connect('localhost', 'root', '', 'stoki_bd');
 $nib = geradorNib(1);
-echo "<script>alert('$nib')</script>";
 
 try {
     if(!$conexon) {
@@ -26,18 +25,14 @@ try {
         if($exist) {
             echo "<script>alert('Este cadastro já existe')</script>";
         } else {
-            echo "<script>alert('$name, $empresa, $tel, $email, $cnpj, $cpf, $nib')</script>";
-            
-            $call = mysqli_query($conexon, "CALL cad_adm('$name', '$empresa', '$pass', '$tel', '$email', '$cnpj', '$cpf', '$nib')");
+            $call = mysqli_query($conexon, "CALL cad_adm('$name', '$empresa', '$pass', '$tel', '$email', '$cnpj', '$cpf', $nib)");
 
             echo "<script>window.location.href='/STOKI/php/logins/login_adm.php'</script>";
         }
     }
 
-    while (mysqli_next_result($conexon)) { mysqli_store_result($conexon);}
-
 } catch (Exception $error) {
-    
+   echo ""; 
 }
 ?>
 

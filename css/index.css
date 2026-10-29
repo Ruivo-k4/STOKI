@@ -4,3 +4,8 @@
     box-sizing: border-box;
 }
 
+#c-index {
+    .content_hero {
+        background-color: red;
+    }
+}

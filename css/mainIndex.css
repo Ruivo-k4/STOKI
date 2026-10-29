@@ -1,17 +1,51 @@
 #mainIndex {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
     .main_item {
-        padding: 1rem;
+        padding: 1.25rem;
         border-radius: 12px;
         transition: background-color 0.2s ease, box-shadow 0.2s ease;
 
         .data_item {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: ine;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+
+    padding-top: 5dvh;
+
+    i {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        font-size: 2rem;
+        justify-self: center;
+        align-self: center;
+        color: #FFFFFF;
+    }
+
+    h3 {
+        color: #FFFFFF;
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    p {
+        color: #B9D8F5;
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        opacity: 1;
+    }
+}
     }
 
     #mainData {
@@ -41,6 +75,7 @@
                 box-shadow: 0 6px 18px var(--sombraCardHover);
                 border-color: var(--primarioAsside);
             }
+
         }
     }
 
@@ -61,7 +96,8 @@
             border-radius: 14px;
             box-shadow: 0 12px 35px var(--sombraModal);
 
-            h2, h3 {
+            h2,
+            h3 {
                 margin: 0;
                 color: var(--textoPrincipal);
                 font-weight: 600;
@@ -201,7 +237,8 @@
             tr {
                 border: 1px solid var(--bordaTabela);
 
-                th, td {
+                th,
+                td {
                     padding: 0.9rem 1.25rem;
                     text-align: start;
 
@@ -233,7 +270,7 @@
         }
 
         #mainData {
-            grid-template-columns: repeat(2, 1fr);
+            
             gap: 1rem;
         }
 
@@ -259,12 +296,14 @@
                     font-size: 0.75rem;
                 }
 
-                #tBody td{
+                #tBody td {
                     display: flex;
                 }
 
                 tr {
-                    th, td {
+
+                    th,
+                    td {
                         padding: 0.75rem 0.85rem;
                     }
                 }
@@ -276,6 +315,7 @@
 /* Respeita usuários que preferem menos animações */
 @media (prefers-reduced-motion: reduce) {
     #mainIndex {
+
         *,
         *::before,
         *::after {

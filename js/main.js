@@ -8,3 +8,4 @@ import './cadIndex.js';
 import './user_state_cature.js';
 import './update.js';
 import './buttonsConfig.js';
+import './apis/gtin.js';

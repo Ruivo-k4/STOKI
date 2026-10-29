@@ -7,6 +7,7 @@ let menu = document.querySelector("#assideIndex");
 if (menu) {
     let user_state_in = document.querySelector(".user_state_global");
     console.log(user_state_in)
+
     //#region criando menu
     menu.innerHTML = content.completo;
     //#endregion
@@ -18,10 +19,6 @@ if (menu) {
         case window.location.href.includes('pedidos_frame.php'):
             let aPed = document.querySelector("#aPed");
             aPed.classList.add('selectAsside');
-            break
-        case window.location.href.includes("financeiro_frame.php"):
-            let aFin = document.querySelector("#aFin");
-            aFin.classList.add('selectAsside');
             break
         case window.location.href.includes('estoque_frame.php'):
             let aEstq = document.querySelector("#aEstq");

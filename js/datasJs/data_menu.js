@@ -6,7 +6,6 @@ export const content = {
             </div>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <li id="aFin"><a href="financeiro_frame.php">Finanças</a></li>
                 <li id="aEstq"><a href="estoque_frame.php">Estoque</a></li>
                 <li id="aProd"><a href="Produto_frame.php">Produtos</a></li>
                 <li id="aPed"><a href="pedidos_frame.php">Pedidos</a></li>
@@ -17,7 +16,11 @@ export const content = {
         <div class="item" id="assideActions">
             <ul>
                 <li id="configurateIndex">Configurações</li>
-                <li>Sair</li>
+                <li>
+                    <form action="/STOKI/php/logout.php" method="POST">
+                        <button type="submit" name="logout">Sair</button>
+                    </form>
+                </li>
             </ul>
         </div>
     `
