@@ -5,7 +5,7 @@ export const content = {
                 <img src="imgs/logo.png" alt="STOKi" class="asside__img">
             </div>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="/STOKI/php/logins/login_adm.php">Inicio</a></li>
                 <li id="aEstq"><a href="estoque_frame.php">Estoque</a></li>
                 <li id="aProd"><a href="Produto_frame.php">Produtos</a></li>
                 <li id="aPed"><a href="pedidos_frame.php">Pedidos</a></li>

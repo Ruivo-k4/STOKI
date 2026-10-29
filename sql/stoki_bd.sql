@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS funcionarios (
     FOREIGN KEY (adm_id) REFERENCES adms(id)
 );
 
+
 CREATE TABLE IF NOT EXISTS clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     adm_id INT NOT NULL,

@@ -30,7 +30,7 @@ export const content = {
     lAdm: `
         <form action="login_adm.php" method="POST" class="hero__form">
             <h1 class="hero__title">Bem Vindo ao STOKI</h1>
-            <p class="hero__subtitle">Faça seu loguin e viva a facilidade</p>
+            <p class="hero__subtitle">Faça seu login e viva a facilidade</p>
             <input type="email" name="email" id="emailIn" class="content__in" placeholder="Email: " required>
             <input type="password" name="senha" id="passIn" class="content__in" placeholder="Senha: " required>
             <button type="submit" class="content__btn">Fazer Login</button>
@@ -40,7 +40,7 @@ export const content = {
     lFun: `
         <form action="login_fun.php" method="POST" class="hero__form">
             <h1 class="hero__title">Bem Vindo ao STOKI</h1>
-            <p class="hero__subtitle">Faça seu loguin e viva a facilidade</p>
+            <p class="hero__subtitle">Faça seu login e viva a facilidade</p>
             <input type="text" name="nib" id="nibIn" class="content__in" placeholder="NIB: " required>
             <input type="password" name="senha" id="passIn" class="content__in" placeholder="Senha: " required>
             <button type="submit" class="content__btn">Fazer Login</button>

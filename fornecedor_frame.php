@@ -1,6 +1,6 @@
 <?php 
 include 'table.php';
-$titles = ['Fornecedor', 'Telefone', 'E-mail', 'Cnpj', 'cep', 'Ações'];
+$titles = ['Fornecedor', 'Telefone', 'Cnpj', 'E-mail', 'cep', 'Ações'];
 
 $data = [];
 try { //impede a mensagem de erro de banco, evitar quebrar CSS
