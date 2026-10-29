@@ -80,5 +80,13 @@ if (main) {
 
             })
         }
+
+        modal.addEventListener('input', () => {
+            let qnt_in = document.querySelector("#qnt__in");
+            let val_unit_in = document.querySelector("#val_unit__in");
+            let total = document.querySelector("#valorTotal");
+
+            total.innerHTML = qnt_in.value * val_unit_in.value
+        });
     }
 }

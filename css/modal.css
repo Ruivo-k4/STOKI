@@ -35,6 +35,10 @@
         color: orange;
     }
 
+    .resumo_venda {
+        color: white;
+    }
+
     .header {
         display: flex;
         align-items: center;

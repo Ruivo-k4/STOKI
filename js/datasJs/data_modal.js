@@ -106,7 +106,7 @@ export const contents = {
                         step="1"
                         placeholder="Quantidade:"
                         class="group__in_ped in--number"
-                        id="qnt"
+                        id="qnt__in"
                         required>
 
                     <input type="number"
@@ -115,7 +115,7 @@ export const contents = {
                         step="0.01"
                         placeholder="Valor unitário (R$):"
                         class="group__in in--number"
-                        id = "val_unit"
+                        id = "val_unit__in"
                         required>
 
                 </div>

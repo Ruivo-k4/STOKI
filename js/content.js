@@ -2,6 +2,12 @@ let main = document.querySelector("#mainIndex");
 
 if (main) {
     //#region criação das caixas
+    const modal = document.querySelector("#modalIndex");
+
+    if (modal) {
+        
+    }
+
     let boxes = document.querySelector("#mainData");
 
     const produtosData = [
